@@ -1,3 +1,6 @@
+// Emacs
+*~
+
 // LateX stuff
 *.aux
 *.glo
@@ -22,3 +25,4 @@
 *.mtc1
 *.out
 *.synctex.gz
+_minted-slides

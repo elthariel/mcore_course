@@ -1,0 +1,17 @@
+\frametitle{fork() example}
+
+  \begin{minted}{c}
+    pid_t pid = fork();
+    if (pid) {
+      // Parent (original process)
+      int status;
+      wait(&status); // Ask if you don't know
+    } else {
+      // Child (new process)
+      char *newenviron[] = { NULL };
+      char *newargv[] = { NULL };
+
+      // Replace the current process by "/bin/ls"
+      execve("bin/ls", newargv, newenviron);
+    }
+  \end{minted}

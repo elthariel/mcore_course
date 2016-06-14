@@ -1,0 +1,49 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[babel=true]{microtype}
+\usetheme{Montpellier}
+
+\title{Parallel programming on multicore architecture}
+\author{Julien 'Lta' BALLET}\institute{Ambiant-IT}
+
+\begin{document}
+
+
+\AtBeginSection[]{
+  \begin{frame}{Summary}
+    \small \tableofcontents[currentsection, hideothersubsections]
+  \end{frame}
+}
+
+\AtBeginSubsection[]{
+  \begin{frame}
+    \subsecname
+  \end{frame}
+}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+
+
+
+\input{00_intro}
+
+% --------- Sommaire ---------
+\section*{Content}
+\begin{frame}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+% ----------------------------
+
+\input{01_basics}
+
+\input{02_thread_apis}
+
+
+\end{document}
