@@ -1,17 +1,22 @@
-\frametitle{fork() example}
+\frametitle{TLS Example}
 
-  \begin{minted}{c}
-    pid_t pid = fork();
-    if (pid) {
-      // Parent (original process)
-      int status;
-      wait(&status); // Ask if you don't know
-    } else {
-      // Child (new process)
-      char *newenviron[] = { NULL };
-      char *newargv[] = { NULL };
+  \begin{minted}[fontsize=\scriptsize]{c}
+    static pthread_key_t key;
+    static pthread_once_t key_once = PTHREAD_ONCE_INIT;
 
-      // Replace the current process by "/bin/ls"
-      execve("bin/ls", newargv, newenviron);
+    static void make_key() {
+      (void) pthread_key_create(&key, NULL);
+    }
+
+    func() {
+      void *ptr;
+
+      (void) pthread_once(&key_once, make_key);
+      if ((ptr = pthread_getspecific(key)) == NULL) {
+        ptr = malloc(OBJECT_SIZE);
+        // ...
+        (void) pthread_setspecific(key, ptr);
+      }
+      // ...
     }
   \end{minted}

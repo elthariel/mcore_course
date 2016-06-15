@@ -1,4 +1,6 @@
-\section{Thread APIs}
+\section{System APIs}
+
+
 
 \begin{frame}
   \frametitle{Threads API}
@@ -12,7 +14,7 @@
   \item Synchronization
     \begin{itemize}
     \item Lifecycle synchronization
-    \item Share resource
+    \item Share resources
     \item Share work
     \end{itemize}
   \item Tuning
@@ -26,8 +28,17 @@
 \end{frame}
 
 
-\subsection{Pthreads}
+
+
+
+
+
+
+
+\subsection{POSIX Threads}
 \label{subsec:pthreads}
+
+
 
 \begin{frame}
   \frametitle{Introducing the POSIX Threading API}
@@ -38,7 +49,6 @@
     \item \emph{pthread\_xxx} functions
     \item Man pages: \textbf{man 7 pthreads}
     \end{itemize}
-  \item Low level
   \item Primitives
     \begin{itemize}
     \item Lifecycle management
@@ -48,7 +58,364 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Why the low-level API ?}
+
+  \begin{itemize}
+  \item The more you know
+    \begin{itemize}
+    \item Used in a lot of code
+    \item Precise documentation
+    \item System semantic and behavior
+    \end{itemize}
+  \item More control
+  \item Not everything is wrapped
+  \item Access to non-portable features
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Lifecycle management}
+
+  \begin{itemize}
+  \item Creation
+    \begin{itemize}
+    \item Process creation
+    \item \emph{pthread\_create()} with a function pointer
+    \end{itemize}
+  \item Destruction
+    \begin{itemize}
+    \item The thread function returns
+    \item \emph{pthread\_exit()} exits the current thread
+    \item \emph{pthread\_cancel()} exits another thread
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+% XXX: Add some examples
+
+
+\begin{frame}
+  \frametitle{Synchronization}
+
+  \begin{itemize}
+  \item MUTual EXclusions (aka mutex or lock)
+    \begin{itemize}
+    \item Thread can acquire/release it
+    \item Only 1 thread can acquire it at the time
+    \item Helps protect shared resources
+    \end{itemize}
+  \item RW Locks
+    \begin{itemize}
+    \item Acquired for Read OR Write
+    \item Multiple reader OR one writer at the time
+    \end{itemize}
+  \item Conditions / Signals
+    \begin{itemize}
+    \item Wait for a condition to happen
+    \item Signal (awake threads) when a condition happen
+    \end{itemize}
+  \item Barriers
+    \begin{itemize}
+    \item Wait for \emph{N} other threads to reach a certain point
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Mutex}
+
+  \begin{itemize}
+  \item Helps protect a shared resource from concurrent access.
+  \item Lifecycle
+    \begin{itemize}
+    \item \emph{pthread\_mutex\_init()}
+    \item \emph{pthread\_mutex\_destroy()}
+    \item \verb+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;+
+    \end{itemize}
+  \item Lock
+    \begin{itemize}
+    \item \emph{pthread\_mutex\_lock()}
+    \item \emph{pthread\_mutex\_timedlock()}
+    \item \emph{pthread\_mutex\_trylock()}
+    \end{itemize}
+  \item Unlock: \emph{pthread\_mutex\_unlock()}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{RW Locks}
+
+  \begin{itemize}
+  \item Helps protect a shared resource from concurrent access.
+  \item For \emph{read-mostly} data
+  \item Lifecycle
+    \begin{itemize}
+    \item \emph{pthread\_rwlock\_init()}
+    \item \emph{pthread\_rwlock\_destroy()}
+    \item \verb+pthread_rwlock_t rwl = PTHREAD_RWLOCK_INITIALIZER;+
+    \end{itemize}
+  \item Lock as a writer:
+    \begin{itemize}
+    \item \emph{pthread\_rwlock\_wrlock()}
+    \item \emph{\_trywrlock()},  \emph{\_timedwrlock()}
+    \end{itemize}
+  \item Lock as a reader:
+    \begin{itemize}
+    \item \emph{pthread\_rwlock\_rdlock()}
+    \item ...
+    \end{itemize}
+  \item Unlock: \emph{pthread\_rwlock\_unlock()}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Conditions}
+
+  \begin{itemize}
+  \item 1-n thread(s) wait(s) on a condition
+  \item Another thread wakes one or all waiting thread(s)
+  \item Requires a mutex
+  \item API calls:
+    \begin{itemize}
+    \item \emph{pthread\_cond\_init()} and \emph{pthread\_cond\_destroy()}
+    \item Wait: \emph{\_cond\_wait()} and \emph{\_cond\_timedwait()}
+    \item Wake one: \emph{\_cond\_signal()}
+    \item Wake all: \emph{\_cond\_broadcast()}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Barriers}
+
+  \begin{itemize}
+  \item A barrier is initialized with an int ``N''.
+  \item Threads may \emph{wait} on the barrier.
+  \item When ``N'' threads are waiting, they're all resumed.
+  \item One thread get a special value returned, the other get 0.
+  \item API calls:
+    \begin{itemize}
+    \item \emph{pthread\_barrier\_init()} and \emph{\_destroy()}
+    \item \emph{pthread\_barrier\_wait()}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Spinlocks}
+
+  \begin{itemize}
+  \item Busy-wait based mutexes
+  \item Avoid context switches
+  \item Good for short lived locks
+  \item API Calls:
+    \begin{itemize}
+    \item \emph{pthread\_spin\_init} and \emph{\_destroy}
+    \item \emph{\_lock()} and \emph{\_unlock()}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Utils}
+
+  \begin{itemize}
+  \item Wait for a thread to terminate: \emph{pthread\_join()}
+  \item Get called before/after fork: \emph{pthread\_atfork()}
+  \item Get the current thread: \emph{pthread\_self()}
+  \item Compare threads: \emph{pthread\_equals()}
+  \item Call a function once per process: \emph{pthread\_once()}
+  \item Relinquish the CPU: \emph{pthread\_yield()} or \emph{sched\_yield()}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thread Local Storage}
+
+  \begin{itemize}
+  \item Thread specific pointers
+  \item Non thread-safe library (codec, interpreter, ...)
+  \item API Calls:
+    \begin{itemize}
+    \item Create a key: \emph{pthread\_key\_create()}
+    \item \emph{pthread\_key\_destroy()}
+    \item Store a pointer for key/thread: \emph{pthread\_setspecific()}
+    \item Get the pointer: \emph{pthread\_getspecific()}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{TLS Example}
+
+  \begin{minted}[fontsize=\scriptsize]{c}
+    static pthread_key_t key;
+    static pthread_once_t key_once = PTHREAD_ONCE_INIT;
+
+    static void make_key() {
+      (void) pthread_key_create(&key, NULL);
+    }
+
+    func() {
+      void *ptr;
+
+      (void) pthread_once(&key_once, make_key);
+      if ((ptr = pthread_getspecific(key)) == NULL) {
+        ptr = malloc(OBJECT_SIZE);
+        // ...
+        (void) pthread_setspecific(key, ptr);
+      }
+      // ...
+    }
+  \end{minted}
+\end{frame}
+
+
 
 
 \subsection{C++ 11}
 \label{subsec:cpp11}
+
+\begin{frame}
+  \frametitle{threading in std::}
+
+  \begin{itemize}
+  \item C++11 adds threading support in the stdlib
+  \item Clean C++
+  \item Support portable behaviors and primitives
+  \item Supported by most compilers/stdlib:
+    \begin{itemize}
+    \item gcc/libstd++
+    \item clang/libc++
+    \item MSVC 2012+
+    \item icc: meh !
+    \end{itemize}
+  \item boost::thread is close-enoguh
+  \end{itemize}
+\end{frame}
+
+
+% XXX: Talk about threads
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{A quick tour of process based parallelism}
+\label{subsec:sysv}
+
+
+\begin{frame}
+  \frametitle{Why care about processes ?}
+
+  \begin{itemize}
+  \item Original UNIX-way
+  \item Very good support
+  \item Safer and more robust:
+    \begin{itemize}
+    \item Isolate segfaults
+    \item Less coupling
+    \end{itemize}
+  \item Isolate incompatible licenses
+  \item Complementary with threads
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Two APIS}
+
+  \begin{itemize}
+  \item System V
+    \begin{itemize}
+    \item Older
+    \item Akward API
+    \item Widely supported
+    \end{itemize}
+  \item POSIX
+    \begin{itemize}
+    \item Not fully supported everywhere
+    \item More traditional semantic (open, mmap, ...)
+    \end{itemize}
+  \item We'll talk about SysV APIs here
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Shared memory}
+
+  \begin{itemize}
+  \item Pages of memory shared between 2 or more processes
+  \item API Calls:
+    \begin{itemize}
+    \item Open/Create a segment: \emph{shmget()}
+    \item Map the segment in memory: \emph{shmat()}
+    \item Unmap the segment: \emph{shmdt()}
+    \item Delete the segment: \emph{shmctl()} with the \emph{IPC\_RMID} flag
+    \end{itemize}
+  \item spinlocks and barriers can be shared via shared memory
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Semaphores}
+
+  \begin{itemize}
+  \item Interprocess synchronization primitive
+  \item Positive or null integer with 3 operations:
+    \begin{itemize}
+    \item Add another integer
+    \item Wait until value is null
+    \item Wait until value is bigger than \emph{N}, then substract \emph{N}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Semaphores API}
+
+  \begin{itemize}
+  \item Manipulated as sets
+  \item Create/Open a semaphore set: \emph{semopen()}
+  \item Operates on the semaphore set values: \emph{semop()}
+  \item Deletes a semaphore set: \emph{semctl()} with \emph{IPC\_RMID} operation
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Message Queues}
+
+  \begin{itemize}
+  \item Exchange arbitrary messages between processes
+  \item API Calls:
+    \begin{itemize}
+    \item Create/Open a queue: \emph{msgget()}
+    \item Post a message on the queue: \emph{msgsnd()}
+    \item Receive a message from a queue: \emph{msgrcv()}
+      \begin{itemize}
+      \item The message is removed from the queue
+      \end{itemize}
+    \item Delete a queue: \emph{msgctl()} with \emph{IPC\_RMID} operation
+    \end{itemize}
+  \end{itemize}
+\end{frame}

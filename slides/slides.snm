@@ -3,3 +3,10 @@
 \beamer@slide {subsec:sysbase}{14}
 \beamer@slide {subsec:linuxmodel}{20}
 \beamer@slide {subsec:pthreads}{29}
+\beamer@slide {subsec:cpp11}{42}
+\beamer@slide {subsec:sysv}{44}
+\beamer@slide {sec:parallel_algos}{51}
+\beamer@slide {subsec:parallel_problem}{53}
+\beamer@slide {subsec:datadeps}{60}
+\beamer@slide {subsec:com}{65}
+\beamer@slide {subsec:label}{66}
