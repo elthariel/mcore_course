@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{minted}
 \usepackage{lmodern}
+\usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage[babel=true]{microtype}
 \usetheme{Montpellier}
@@ -32,7 +33,7 @@
 
 
 
-\input{00_intro}
+\input{intro}
 
 % --------- Sommaire ---------
 \section*{Content}
@@ -41,11 +42,16 @@
 \end{frame}
 % ----------------------------
 
-\input{01_basics}
+\input{basics}
 
-\input{02_thread_apis}
+\input{thread_apis}
 
-\input{03_parallel_algorithms}
+\input{parallel_algorithms}
 
+\input{kernel_and_hardware}
+
+\input{tools_and_libs}
+
+\input{performance}
 
 \end{document}

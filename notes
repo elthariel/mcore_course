@@ -1,0 +1,17 @@
+
+Tools:
+  * Debug
+  ** gdb/lldb
+  ** Helgrind
+  ** lockdep
+  * Performance
+  ** profiler
+  ** perf
+  **
+
+Workshops:
+
+  * APIs/Parallel algorithms:
+  ** Write a thread-safe std::queue that can be waited on for presence of data
+  ** Write a small transcoder, get the student to make it parallel
+  

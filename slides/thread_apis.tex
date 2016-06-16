@@ -304,16 +304,240 @@
 \end{frame}
 
 
-% XXX: Talk about threads
+\begin{frame}
+  \frametitle{Features}
+
+  \begin{itemize}
+  \item std::thread
+  \item std::mutex
+  \item std::atomic
+  \item std::condition\_variable
+  \item std::future
+  \item thread\_local keyword
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{std::thread}
+
+  \begin{itemize}
+  \item Spawn a thread at construction
+    \begin{itemize}
+    \item No return value
+    \item No way to terminate externally
+    \end{itemize}
+  \item Movable but non-copyable
+  \item \emph{::join()}
+  \item \emph{::get\_id()}
+  \item \emph{::native\_handle()}
+  \item \emph{::hardware\_concurrency()}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{std::thread example}
+
+  \begin{minted}[fontsize=\scriptsize]{cpp}
+    void call_from_thread(int tid) {
+      std::cout << "Launched by thread " << tid << std::endl;
+    }
+
+    int main() {
+      std::thread t[num_threads];
+
+      //Launch a group of threads
+      for (int i = 0; i < num_threads; ++i) {
+        t[i] = std::thread(call_from_thread, i); //C++11 magic !
+      }
+
+      // Join the threads
+      for (int i = 0; i < num_threads; ++i) {
+        t[i].join();
+      }
+    }
+  \end{minted}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{std::mutex}
+
+  \begin{itemize}
+  \item Basic locking: \emph{std::mutex}
+    \begin{itemize}
+    \item \emph{::lock()}
+    \item \emph{::try\_lock()}
+    \item \emph{::unlock()}
+    \end{itemize}
+  \item Locking with timeout: \emph{std::timed\_mutex}
+    \begin{itemize}
+    \item \emph{::try\_lock\_for()}
+    \item \emph{::try\_lock\_until()}
+    \end{itemize}
+  \item Recursive locking: \emph{std::recursive\_mutex()}
+    \begin{itemize}
+    \item Caution
+    \end{itemize}
+  \end{itemize}
+\end{frame}
 
 
 
+\begin{frame}
+  \frametitle{Scope-based locking}
+
+  \begin{itemize}
+  \item Nice and safe.
+  \item std::lock\_guard
+    \begin{itemize}
+    \item Locks at construction
+    \item Unlocks at destruction
+    \end{itemize}
+  \item std::unique\_lock
+    \begin{itemize}
+    \item Mutex ownership proxy.
+    \item Optionally locks the mutex at construction
+    \item Movable, non-copyable
+    \item \emph{::lock()}, \emph{::try\_lock()}, \emph{::unlock()}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
 
 
+\begin{frame}[fragile]
+  \frametitle{std::mutex example}
+
+  \begin{minted}[fontsize=\scriptsize]{cpp}
+    static std::mutex mtx;
+
+    void call_from_thread(int tid) {
+      // Access to stdout is synchronized
+      std::lock_guard<std::mutex> lock;
+      std::cout << "Launched by thread " << tid << std::endl;
+    }
+
+    int main() {
+      std::thread t[num_threads];
+
+      for (int i = 0; i < num_threads; ++i) {
+        t[i] = std::thread(call_from_thread, i); //C++11 magic !
+      }
+      for (int i = 0; i < num_threads; ++i) {
+        t[i].join();
+      }
+    }
+  \end{minted}
+\end{frame}
 
 
+\begin{frame}
+  \frametitle{std::condition\_variable}
+
+  \begin{itemize}
+  \item Requires a \emph{std::unique\_lock}
+  \item \emph{::notify\_one()}
+  \item \emph{::notify\_all()}
+  \item \emph{::wait()}, \emph{::wait\_for()} and \emph{::wait\_until()}
+  \end{itemize}
+\end{frame}
 
 
+\begin{frame}
+  \frametitle{std::atomic}
+
+  \begin{itemize}
+  \item Various integer types
+  \item Memory syncronization
+  \item Standard atomic operations
+    \begin{itemize}
+    \item Add, Subtract, Store
+    \item Compare and Swap
+    \item And, Or, Xor
+    \end{itemize}
+  \item Base for lock-free algorithms
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{std::atomic example}
+
+  \begin{minted}[fontsize=\scriptsize]{cpp}
+    std::atomic<bool> running = true;
+
+    void thread() {
+      while (running) {
+        std::this_thread::yield()
+      }
+    }
+
+    void stop_thread() {
+      // Do stuff 1
+      running = false;
+      // Do stuff 2
+    }
+  \end{minted}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{std::future}
+
+  \begin{itemize}
+  \item Framework for deferred execution
+    \begin{itemize}
+    \item Lazy evaluation
+    \item Thread pool
+    \item Manual scheduling
+    \end{itemize}
+  \item std::promise: Stores the data
+  \item std::future: Wait for the data
+  \item std::async: Run a method asynchronously, returns a future
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{std::atomic example}
+
+  \begin{minted}[fontsize=\scriptsize]{cpp}
+    template <typename ITER>
+    int parallel_sum(ITER beg, ITER end)
+    {
+      auto len = end - beg;
+      if(len < 420)
+      return std::accumulate(beg, end, 0);
+
+      ITER mid = beg + len/2;
+      auto handle = std::async(std::launch::async,
+                               parallel_sum<ITER>, mid, end);
+      int sum = parallel_sum(beg, mid);
+      return sum + handle.get();
+    }
+
+    int main()
+    {
+      std::vector<int> v(42000, 1);
+      std::cout << "The sum is " << parallel_sum(v.begin(), v.end()) << '\n';
+      // The sum is 42000
+    }
+  \end{minted}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{thread\_local}
+
+  \begin{itemize}
+  \item Storage specifier keyword
+  \item Can be combined with
+    \begin{itemize}
+    \item \emph{static}
+    \item \emph{extern}
+    \end{itemize}
+  \item Use Thread local storage
+  \end{itemize}
+\end{frame}
 
 
 

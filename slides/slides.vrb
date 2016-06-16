@@ -1,22 +1,24 @@
-\frametitle{TLS Example}
+\frametitle{std::atomic example}
 
-  \begin{minted}[fontsize=\scriptsize]{c}
-    static pthread_key_t key;
-    static pthread_once_t key_once = PTHREAD_ONCE_INIT;
+  \begin{minted}[fontsize=\scriptsize]{cpp}
+    template <typename ITER>
+    int parallel_sum(ITER beg, ITER end)
+    {
+      auto len = end - beg;
+      if(len < 420)
+      return std::accumulate(beg, end, 0);
 
-    static void make_key() {
-      (void) pthread_key_create(&key, NULL);
+      ITER mid = beg + len/2;
+      auto handle = std::async(std::launch::async,
+                               parallel_sum<ITER>, mid, end);
+      int sum = parallel_sum(beg, mid);
+      return sum + handle.get();
     }
 
-    func() {
-      void *ptr;
-
-      (void) pthread_once(&key_once, make_key);
-      if ((ptr = pthread_getspecific(key)) == NULL) {
-        ptr = malloc(OBJECT_SIZE);
-        // ...
-        (void) pthread_setspecific(key, ptr);
-      }
-      // ...
+    int main()
+    {
+      std::vector<int> v(42000, 1);
+      std::cout << "The sum is " << parallel_sum(v.begin(), v.end()) << '\n';
+      // The sum is 42000
     }
   \end{minted}
