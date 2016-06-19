@@ -19,7 +19,9 @@
 \beamer@slide {subsec:sched}{93}
 \beamer@slide {subsec:rt}{94}
 \beamer@slide {subsec:memory}{95}
-\beamer@slide {sec:tools}{96}
-\beamer@slide {subsec:debugtools}{97}
-\beamer@slide {subsec:perftools}{98}
-\beamer@slide {subsec:tbb}{99}
+\beamer@slide {subsec:perf}{96}
+\beamer@slide {sec:tools}{97}
+\beamer@slide {subsec:debugtools}{100}
+\beamer@slide {subsec:perftools}{112}
+\beamer@slide {subsec:tbb}{123}
+\beamer@slide {sec:res}{125}

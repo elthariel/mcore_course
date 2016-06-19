@@ -1,11 +1,402 @@
 \section{Tools and Libraries}
 \label{sec:tools}
 
+
+\begin{frame}
+  \frametitle{I hope you like CLI tools}
+
+  \begin{itemize}
+  \item We're \textbf{engineers}, we don't care about GUI
+  \item We care about
+    \begin{itemize}
+    \item Features
+    \item Performance
+    \item Efficiency
+    \item Automation
+    \end{itemize}
+  \item CLI tools are \textbf{much} better for that
+  \item You can find a GUI later
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Open Source only}
+
+  \begin{itemize}
+  \item Widely available
+    \begin{itemize}
+    \item Your knowledge have more value
+    \end{itemize}
+  \item Independence from vendor
+    \begin{itemize}
+    \item Remember Borland C++ ? \footnote{lol}
+    \end{itemize}
+  \item Usually better maintained and documented
+    \begin{itemize}
+    \item Source is the best documentation
+    \end{itemize}
+  \item Adaptable to your needs
+  \end{itemize}
+\end{frame}
+
 \subsection{Debug tools}
 \label{subsec:debugtools}
+
+\begin{frame}
+  \frametitle{gdb}
+
+  \begin{itemize}
+  \item The venerable debugger \footnote{http://www.gnu.org/music/gdb-song.html}
+  \item Linux/Unix standard
+  \item Loads of features
+  \item Very stable
+  \item Part of the gcc project
+  \item Large official documentation
+  \item Lots of resources on the web
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{lldb}
+
+  \begin{itemize}
+  \item The newcomer
+  \item Part of the clang project
+    \begin{itemize}
+    \item More modern codebase
+    \item Very active community
+    \end{itemize}
+  \item Pretty mature for its age
+  \item Better C++ support
+  \item Documentation is not so good
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{QuickStack}
+
+  \begin{itemize}
+  \item Get a running process stacktrace
+  \item Very low-overhead
+  \item Handy for production
+    \begin{itemize}
+    \item Is it deadlocked ?
+    \item Where ?
+    \item Quick and dirty profiler
+    \end{itemize}
+  \item requires -fno-omit-frame-pointer
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Valgrind's memcheck}
+
+  \begin{itemize}
+  \item Not exactly related to threading but...
+  \item It's \textbf{Amazing}. It saves lives, kitten and the queen
+  \item Very slow (that's the price of greatness)
+  \item Check your code for any memory related bug
+    \begin{itemize}
+    \item Out of bound access
+    \item Uninitialized access
+    \item Double free
+    \item Segfaults
+    \item Leaks
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Valgrind's Helgrind}
+
+  \begin{itemize}
+  \item Detects errors in your multithreaded program:
+    \begin{itemize}
+    \item pthread API errors
+      \begin{itemize}
+      \item Uninitialized mutexes/conditions/...
+      \item Recursive locking on non-recursive mutexes
+      \item ...
+      \end{itemize}
+    \item \emph{Potential} deadlocks
+    \item Possible data races
+      \begin{itemize}
+      \item Data accessed by two threads with no mutex
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Valgrind's DRD}
+
+  \begin{itemize}
+  \item Another threading error detector
+  \item memcheck should pass
+  \item Mostly the same errors as Helgrind, plus:
+    \begin{itemize}
+    \item False-sharing
+    \item Lock contention
+    \end{itemize}
+  \item Different engine than Helgrind
+    \begin{itemize}
+    \item None is better
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{userspace lockdep}
+
+  \begin{itemize}
+  \item lockdep: Kernel deadlock detector / lock validator
+  \item liblockdep: userland version
+  \item Similar to Helgrind
+    \begin{itemize}
+    \item Doesn't check for data races
+    \item Much lighter and faster
+      \begin{itemize}
+      \item For production / embedded
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{clang's sanitizers}
+
+  \begin{itemize}
+  \item A suite of sanitizer (memory, thread, ...)
+  \item Based on instrumentation and runtime library
+  \item Usually much faster than Valgrind's
+  \item Less precise detection
+  \item More precise and readable output
+  \item Need to recompile all the dependencies
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ASAN}
+
+  \begin{itemize}
+  \item Address SANitizer
+  \item Much faster than Valgrind
+  \item Detects:
+    \begin{itemize}
+    \item Out-of-bounds access
+    \item Use after free
+    \item Invalid free
+    \item Memory leak (experimental)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other sanitizers}
+
+  \begin{itemize}
+  \item Thread Sanitizer: Detects data races
+  \item Memory Sanitizer: Detects uninitialized reads
+  \item Various undefined behavior sanitizers
+    \begin{itemize}
+    \item Alignment
+    \item Numeric casts and overflows
+    \item Object casts and dynamic typing
+    \item ...\footnote{http://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html\#ubsan-checks}
+    \end{itemize}
+  \item A few other advanced stuff
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{clang's Thread Safety Analysis}
+
+  \begin{itemize}
+  \item Compile-time checker...
+  \item ...using your instrumentation
+    \begin{itemize}
+    \item Variable is \emph{GUARDED\_BY(mutex)}
+    \item Method \emph{REQUIRES(mutex)} to be locked
+    \item Powerful \emph{CAPABILITIES} system
+    \end{itemize}
+  \item Time consuming
+  \item Enforce code quality and safety
+  \end{itemize}
+\end{frame}
 
 \subsection{Performance tools}
 \label{subsec:perftools}
 
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{quotation}
+    Optimizations always bust things, because all optimizations are, in the long haul, a form of cheating, and cheaters eventually get caught.
+  \end{quotation}
+  $\hfill$ \emph{- Larry Wall}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Selection of tool}
+
+  \begin{itemize}
+  \item Open source and freely available
+  \item Stable enough
+  \item Nothing really multi-threading specific
+  \item \emph{but} amazing options available on Linux
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{gprof}
+
+  \begin{itemize}
+  \item gcc's profiler
+  \item Based on code instrumentation
+  \item Linux historical profiler
+  \item Stable and well supported
+  \item Doesn't work with threads :-/
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{oprofile}
+
+  \begin{itemize}
+  \item The first Linux system sampling profiler
+  \item No code instrumentation
+  \item Can profile your app, or the whole system
+  \item Very low overhead compared to gprof (1-10\%).
+  \item Is being superseded by \emph{perf}
+    \begin{itemize}
+    \item But reports lower level data
+    \item Also a matter of taste
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Valgrind's Cachegrind}
+
+  \begin{itemize}
+  \item Based on a simulation
+  \item Cache profiling
+    \begin{itemize}
+    \item Find cache misses
+    \item \textbf{Line granularity} !!!
+    \end{itemize}
+  \item Branch prediction
+    \begin{itemize}
+    \item Find branch misprediction
+    \item Helps you place hints
+    \item Get those cycles back
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Valgrind's Callgrind}
+
+  \begin{itemize}
+  \item \emph{Classical} profiler
+  \item Valgrind $\rightarrow$ pretty slow
+  \item Pretty precise
+  \item Includes Cachegrind features
+  \item Good threading support \emph{--separate-thread=yes}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{System monitoring tool}
+
+  \begin{itemize}
+  \item On performance critical application, system is important
+  \item vmstat: Various metrics of the system
+    \begin{itemize}
+    \item dstat: Same with nicer UI
+    \item sar: Very detailed
+    \end{itemize}
+  \item iostat: I/O monitoring
+  \item mpstat: Scheduling monitoring
+  \item strace: Trace syscalls made by process/thread
+  \item slaptop: Monitor kernel memory usage
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{mutrace}
+
+  \begin{itemize}
+  \item mutrace is a mutex profile
+  \item Very fast
+  \item Mutex locking stats
+  \item Lock contention
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{perf}
+
+  \begin{itemize}
+  \item One perf tool to \textbf{rule them all}
+  \item System sampling profiler
+    \begin{itemize}
+    \item Your app
+    \item The kernel
+    \end{itemize}
+  \item Access all the kernel tracepoints and data
+  \item \emph{Extremely} powerful
+  \item Pretty complex
+  \item Flame Graphs
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{SystemTap}
+
+  \begin{itemize}
+  \item Another level above perf
+  \item Script based
+  \item Debugger features
+  \item Dynamic tracer compilation and insertion
+  \item Comparison with perf: https://sourceware.org/systemtap/wiki/SystemtapDtraceComparison
+  \end{itemize}
+\end{frame}
+
+
 \subsection{Intel TBB}
 \label{subsec:tbb}
+
+\begin{frame}
+  \frametitle{What is it ?}
+
+  \begin{itemize}
+  \item C++ template library for parallelism
+  \item Nice license (same as libstdc++)
+  \item Nice features
+    \begin{itemize}
+    \item Thread safe / Lock free containers
+    \item Parallelized loops
+    \item Memory allocators
+    \item Design patterns
+    \end{itemize}
+  \item Parts are being obsoleted by C++11
+  \end{itemize}
+\end{frame}

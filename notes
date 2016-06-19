@@ -1,17 +1,41 @@
 
+Stuff to talk about
+ * Deadlock
+ * Live lock
+ * Priority Inversion
+ * Convoying
+ * Preemption tolerance
+ * Reentrance & signal safety
+ * DCLP
+ * Cache lines
+ * Memory barriers
+ * Lock free things
+
 Tools:
   * Debug
   ** gdb/lldb
-  ** Helgrind
-  ** lockdep
+  ** Valgrind Memcheck/Helgrind/DRD
+  ** lockdep: http://www.vctlabs.com/posts/2014/Jul/09/liblockdep/
+  ** locksmith: https://github.com/cmccabe/lksmith
+  ** Clang's great sanitizer
+  
   * Performance
-  ** profiler
-  ** perf
-  **
+  ** profiler: gprof, callgrind, cachegrind, oprofile
+  *** Quickstack: https://github.com/yoshinorim/quickstack  
+  ** Simple tools: iostat, vmstat (dstat), mpstat, sar, strace, slabtop
+  ** mutrace for lock contention
+  ** perf  
+  ** SystemTap
+  ** Flame graphs
 
 Workshops:
 
-  * APIs/Parallel algorithms:
+  ** Talk about modeling different parallel algorithms.
   ** Write a thread-safe std::queue that can be waited on for presence of data
-  ** Write a small transcoder, get the student to make it parallel
+  ** Write a small transcoder, get the student to make it parallel with C/C++11
+  ** Improve it using Intel TBB
+  ** Demonstration/exercices on all the debug/performance tools with large sessions on
+  *** gdb
+  *** perf
+  ** Advanced: Write a correct and fully lock-free queue
   
