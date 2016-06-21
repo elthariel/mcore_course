@@ -255,7 +255,7 @@
   \begin{itemize}
   \item The goal:
     \begin{itemize}
-    \item Using 100\% of the CPU
+    \item Use 100\% of the CPUs
     \item Doing actual work
     \end{itemize}
   \item You need actual data or you're just guessing
@@ -280,7 +280,8 @@
     \end{itemize}
   \item Aggregate smaller tasks
   \item Measure the overhead
-  \item Load balancing
+  \item Preserve data locality
+  \item Load balance
     \begin{itemize}
     \item Static ?
     \item Dynamic ?
@@ -311,6 +312,16 @@
 \label{subsec:parpatterns}
 
 \begin{frame}
-  \frametitle{XXX}
+  \frametitle{}
+  \begin{itemize}
+  \item Super-scalar sequences
+  \item Pipelining
+  \item Speculative selection
+  \item Map/Reduce
+  \item (Gather: Map + Read. Allow for some optimizations)
+  \item Partition
+  \item Scan
+  \item Pack
+  \end{itemize}
 
 \end{frame}
