@@ -1,24 +1,7 @@
-\frametitle{std::atomic example}
+\frametitle{Kernel}
 
-  \begin{minted}[fontsize=\scriptsize]{cpp}
-    template <typename ITER>
-    int parallel_sum(ITER beg, ITER end)
-    {
-      auto len = end - beg;
-      if(len < 420)
-      return std::accumulate(beg, end, 0);
-
-      ITER mid = beg + len/2;
-      auto handle = std::async(std::launch::async,
-                               parallel_sum<ITER>, mid, end);
-      int sum = parallel_sum(beg, mid);
-      return sum + handle.get();
-    }
-
-    int main()
-    {
-      std::vector<int> v(42000, 1);
-      std::cout << "The sum is " << parallel_sum(v.begin(), v.end()) << '\n';
-      // The sum is 42000
-    }
-  \end{minted}
+  \begin{itemize}
+  \item Optimizing preemption: \verb+https://lwn.net/Articles/563185/+
+  \item Real-time Linux wiki: \verb+https://rt.wiki.kernel.org/index.php/Main_Page+
+    \item The definitive guide to system calls: \tiny\verb+http://blog.packagecloud.io/eng/2016/04/05/the-definitive-guide-to-linux-system-calls/+
+  \end{itemize}

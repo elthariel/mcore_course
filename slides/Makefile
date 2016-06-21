@@ -11,4 +11,6 @@ clean:
 	rm -f slides.pdf
 	rm -f *~
 
+re: clean all
+
 .PHONY: all clean

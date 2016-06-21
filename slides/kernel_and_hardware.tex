@@ -1,14 +1,547 @@
 \section{Hardware and Kernel}
 \label{sec:kernel}
 
+\subsection{Some hardware considerations}
+\label{subsec:more_hard}
+
+
+
+\begin{frame}
+  \frametitle{Processing architectures}
+
+  \begin{itemize}
+  \item Mono-processor (a.k.a The good ol' days)
+    \begin{itemize}
+    \item One CPU, One memory bus
+    \item Time-slicing
+    \end{itemize}
+  \item Multi-processor
+    \begin{itemize}
+    \item SMP, Symmetric Multi-Processing
+    \item Many CPUs, One Memory bus
+    \end{itemize}
+  \item NUMA
+    \begin{itemize}
+    \item Memory bus is the bottleneck
+    \item Many CPUs, Many memory bus
+    \item One shared memory bus
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Caches}
+
+  \begin{itemize}
+  \item No direct memory accesses
+  \item Always go through caches
+  \item \emph{Write-through} vs \emph{Write-back}
+  \item \emph{Inclusive} vs \emph{exclusive}
+  \item Different levels
+    \begin{itemize}
+    \item L1: 2 per-core (data/instructions)
+    \item L2: shared between some cores
+    \item L3: Shared between all cores
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Cache lines}
+
+  \begin{itemize}
+  \item Memory caching granularity
+    \begin{itemize}
+    \item Usually 64 bytes \emph{(8 * int64\_t)}
+    \end{itemize}
+  \item Cache associativity
+    \begin{itemize}
+    \item Direct-mapping: 1 possible line for every memory address
+    \item n-way associative: n possible lines
+    \item Fully associative: Any line can cache anything
+    \item Modern CPUs: n-way associative (L1: 2/4, L2: 8/16)
+    \end{itemize}
+  \item Line sharing and MESI Protocol
+    \begin{itemize}
+    \item Modified, Exclusive, Shared, Invalid
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Memory barriers}
+
+  \begin{itemize}
+  \item Cache invalidation is \emph{``slow''}
+  \item $\rightarrow$ Done asynchronously
+    \begin{itemize}
+    \item Store buffer
+    \item Invalidation queue
+    \end{itemize}
+  \item Operation on a CPU takes time to propagate
+  \item \textbf{-\_-}
+  \item Memory barriers are ``instructions'' which synchronously flush the buffers
+  \item Also prevent some instruction reordering
+  \item Very important with atomic operations
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Pre-fetching and branch prediction}
+
+  \begin{itemize}
+  \item Access to memory is slow
+  \item Instruction execution is fast
+  \item Let's preload the program instructions
+  \item Lots of jump
+    \begin{itemize}
+    \item Control statements
+    \item Function calls
+    \end{itemize}
+  \item The compiler and CPU tries to predict jumps
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Out of order execution}
+
+  \begin{itemize}
+  \item What you see is NOT what you get
+    \begin{itemize}
+    \item Compiler optimizations
+    \item Processor optimizations !
+    \end{itemize}
+  \item Instructions are reorganized
+  \item \emph{Out of order execution} or \emph{dynamic instruction scheduling}
+    \begin{itemize}
+    \item Instruction queue
+    \item Executed based on data availability
+    \end{itemize}
+  \item Superscalar architecture
+    \begin{itemize}
+    \item Instruction level parallelism
+    \item Use of multiple execution unit
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{SMT}
+
+  \begin{itemize}
+  \item Simultaneous Multi Threading
+  \item A.k.a \emph{HyperThreading}
+  \item 2 (or more) threads on one core.
+  \item Increase usage of
+    \begin{itemize}
+    \item Dynamic instruction scheduling
+    \item Super-scalar
+    \end{itemize}
+  \item 2 logical core, only one real core
+  \item 0-25\% performance gain
+  \item Can reduce performance !
+  \end{itemize}
+\end{frame}
+
 \subsection{Scheduling}
 \label{subsec:sched}
+
+
+\begin{frame}
+  \frametitle{Tasks, threads and processes}
+
+  \begin{itemize}
+  \item In the kernel, everything is a \emph{task}\footnote{task\_struct}
+    \begin{itemize}
+    \item Execution context that can be allocated CPU time
+      \begin{itemize}
+      \item Something \emph{schedulable}
+      \end{itemize}
+    \item With associated resources: Memory\footnote{mm\_struct}, Files\footnote{files\_struct}, ...
+    \end{itemize}
+  \item Used for userland and kernel
+    \begin{itemize}
+    \item Userland task $\rightarrow$ thread
+    \item Threads w/ shared memory and fds $\rightarrow$ process
+    \end{itemize}
+  \item One of the 3 kernel's core concepts
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{What is scheduling ?}
+
+  \begin{itemize}
+  \item The art of sharing the CPU(s)
+  \item Kernel's role.
+  \item What is running ? Where ? For how long ?
+  \item Are all the tasks equals ?
+  \item What is the cost ?
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The cost of scheduling}
+
+  \begin{itemize}
+  \item Context switching
+    \begin{itemize}
+    \item To the kernel
+    \item To another process
+    \end{itemize}
+  \item Latency vs throughput
+  \item When to schedule is important
+    \begin{itemize}
+    \item Suspend a task holding mutexes ?
+    \item Before an I/O operation ?
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{When does scheduling happen ?}
+
+  \begin{itemize}
+  \item When a thread waits (I/O, mutex, ...)
+  \item When returning to user-space from a syscalls
+  \item When returning from an interrupt
+    \begin{itemize}
+    \item Device event (keyboard, network, ...)
+    \item Timer event
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Scheduling classes}
+
+  \begin{itemize}
+  \item What are scheduling classes:
+    \begin{itemize}
+    \item Different algorithms
+    \item Different priority
+    \end{itemize}
+  \item The 'normal' classes:
+    \begin{itemize}
+    \item \emph{SCHED\_NORMAL} (a.k.a \emph{SCHED\_OTHER} in userland)
+    \item \emph{SCHED\_BATCH}. \emph{SCHED\_NORMAL} for CPU-intensive tasks
+    \item \emph{SCHED\_IDLE}. Very low priority. Only run when CPU would idle.
+    \end{itemize}
+  \item The 'real-time' classes:
+    \begin{itemize}
+    \item \emph{SCHED\_FIFO}
+    \item \emph{SCHED\_RR}
+    \item \emph{SCHED\_DEADLINE}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{CFS}
+
+  \begin{itemize}
+  \item The Completely Fair Scheduler\footnote{Since 2.6.23}
+  \item Current scheduler for \emph{SCHED\_NORMAL}
+  \item Models an \emph{ideal} CPU, perfectly shared
+  \item CPU usage is tracked with nano-second precision
+  \item rbtree / O(log n)
+  \item \emph{Sleeper fairness}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other features}
+
+  \begin{itemize}
+  \item Process priorities (aka \emph{niceness})
+    \begin{itemize}
+    \item between process of the same class
+    \end{itemize}
+  \item Processor affinity
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Spinlock, mutex, futex}
+
+  \begin{itemize}
+  \item The basic locking primitive is the spinlock
+    \begin{itemize}
+    \item Waste CPU cycles until ready
+    \item Atomic variable
+    \end{itemize}
+  \item Mutex = spinlock + scheduler cooperation
+  \item Futex\footnote{man 2/7 futex} stands for Fast Userland muTEX
+    \begin{itemize}
+    \item Library and syscalls to implement \emph{pthread\_mutex\_xxx()}
+    \item No syscall when no contention
+    \end{itemize}
+  \end{itemize}
+\end{frame}
 
 \subsection{Syscall and real-time}
 \label{subsec:rt}
 
+
+\begin{frame}
+  \frametitle{What's a syscall ?}
+
+  \begin{itemize}
+  \item The way for the userland to talk to the kernel
+  \item Use processor's software interrupt mechanism (\emph{int 80})
+    \begin{itemize}
+    \item Context-switch to a predefined kernel handler
+    \item Back to ring 0
+    \item The kernel does its thing
+    \item Context-switch back to the calling userland thread
+    \end{itemize}
+  \item No way for the user thread to resume until completion
+  \item Preemption point
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Real time programming}
+
+  \begin{itemize}
+  \item Deterministic programming
+  \item Response time guarantees (deadlines)
+  \item Different types:
+    \begin{itemize}
+    \item Hard: Airplanes, nuclear reactor, car control
+    \item Firm: Sound on your computer
+    \item Soft: Audio/Video streaming
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Worst case scenario}
+
+  \begin{itemize}
+  \item RT system is defined by it's worst-case
+  \item Investigate worst-case execution time.
+    \begin{itemize}
+    \item Is it known ?
+    \item Is it good enough ?
+    \item Can you control it ?
+    \end{itemize}
+  \item Almost everything is optimized for the average-case
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Practically ?}
+
+  \begin{itemize}
+  \item No (\emph{blocking}) syscalls
+    \begin{itemize}
+    \item Goodbye \emph{read()} and \emph{write()}
+    \item You need to know about the kernel's internals
+    \end{itemize}
+  \item Or libc functions which are doing syscalls
+    \begin{itemize}
+    \item Goodbye \emph{malloc()} and \emph{free()}
+    \item ...
+    \end{itemize}
+  \item Synchronization is critical
+    \begin{itemize}
+    \item Goodbye \emph{mutex\_lock()}
+    \item Hello lock-free data structures
+    \end{itemize}
+  \item Takes the rest of the system into account
+  \item Evaluate the worst case complexity
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Why do we care about real-time ?}
+
+  \begin{itemize}
+  \item Make us think about
+    \begin{itemize}
+    \item Latency
+    \item p99
+    \end{itemize}
+  \item The field pioneered:
+    \begin{itemize}
+    \item Asynchronous I/Os
+    \item Lock-free programming
+    \item ...
+    \end{itemize}
+  \item What would you do if you \textbf{had} to have a strict latency
+  \end{itemize}
+\end{frame}
+
+
+
 \subsection{Memory management}
 \label{subsec:memory}
 
-\subsection{Performance}
+
+\begin{frame}
+  \frametitle{Virtual memory (bis)}
+
+  \begin{itemize}
+  \item Controls the MMU
+    \begin{itemize}
+    \item Page directory (mapping between real/virtual addresses)
+    \item Translation Lookaside Buffer
+    \end{itemize}
+  \item Swap
+  \item Pretty complex system
+    \begin{itemize}
+    \item Kernel's own needs
+    \item User memory
+    \item Lots of sharing
+      \begin{itemize}
+      \item Threads: heap vs stack
+      \item SYSV/POSIX shared memory
+      \item \emph{mmpa()}
+      \item DMA
+      \end{itemize}
+    \end{itemize}
+  \item Memory sharing (SYSV, threads, mmap, ...)
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Memory pressure}
+
+  \begin{itemize}
+  \item Balance between different memory users
+    \begin{itemize}
+    \item Userland programs
+    \item Drivers
+    \item Various caches (fs, network, ...)
+    \end{itemize}
+  \item What happens if there are no memory:
+    \begin{itemize}
+    \item Disk write ?
+    \item User request ?
+    \item Interrupt handler ?
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{NUMA}
+
+  \begin{itemize}
+  \item Memory access from a different NUMA node is slow
+  \item Each NUMA-node is managed separately
+  \item Scheduler is NUMA-aware
+    \begin{itemize}
+    \item It tries to keep a task on the same CPU
+    \end{itemize}
+  \item Memory allocation is NUMA-aware
+    \begin{itemize}
+    \item It tries to allocate on the local NUMA-node
+    \end{itemize}
+  \item User can help:
+    \begin{itemize}
+    \item \emph{libnuma} and \emph{numactl}
+    \item \emph{set\_mempolicy()}, ...
+    \item \emph{sched\_setaffinity()}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Swapping}
+
+  \begin{itemize}
+  \item Use disk as memory
+  \item \textbf{Very} slow
+  \item Should never happen...
+  \item ... but it's better than a failed allocation
+  \item \verb+echo -15 > /proc/2592/oom_adj+
+  \item man 2 \emph{mlock}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Errors and Performance}
 \label{subsec:perf}
+
+\begin{frame}
+  \frametitle{Classical problems}
+
+  \begin{itemize}
+  \item Deadlock
+  \item Live lock
+  \item Priority inversion
+    \begin{itemize}
+    \item Priority inheritance: \emph{pthread\_mutexattr\_setprotocol()}
+    \end{itemize}
+  \item Convoying
+  \item Signal handling
+    \begin{itemize}
+    \item No mutex allowed
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Lock contention}
+
+  \begin{itemize}
+  \item Time spent waiting on lock ?
+  \item Measure
+  \item Re-design
+  \item Removes locks
+    \begin{itemize}
+    \item Split data (differently)
+    \item DCLP: Double Check Locking Pattern
+    \item Lock-free
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cache-fighting}
+
+  \begin{itemize}
+  \item Don't forget about cache
+    \begin{itemize}
+    \item Lines
+    \item Associativity
+    \item Sharing
+    \item Coherence
+    \end{itemize}
+  \item Caches are fighting when accessing the same data
+  \item Split the data
+  \item Duplicate if necessary
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{False sharing}
+
+  \begin{itemize}
+  \item Cache-fighting for different data
+  \item on the same cache lines !
+  \item Split/duplicate the data
+  \item Add some padding
+  \item Use a cache-aware memory allocator
+  \end{itemize}
+\end{frame}
