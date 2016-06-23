@@ -3,5 +3,7 @@
   \begin{itemize}
   \item Optimizing preemption: \verb+https://lwn.net/Articles/563185/+
   \item Real-time Linux wiki: \verb+https://rt.wiki.kernel.org/index.php/Main_Page+
-    \item The definitive guide to system calls: \tiny\verb+http://blog.packagecloud.io/eng/2016/04/05/the-definitive-guide-to-linux-system-calls/+
+  \item The definitive guide to system calls: \tiny\verb+http://blog.packagecloud.io/eng/2016/04/05/the-definitive-guide-to-linux-system-calls/+
+  \item \small Linux Cross Reference (LXR). THE way to read the kernel's code: \verb+http://lxr.free-electrons.com/+
+  \item Kernel doc page: \verb+https://www.kernel.org/doc/+
   \end{itemize}

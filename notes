@@ -39,3 +39,11 @@ Workshops:
   *** perf
   ** Advanced: Write a correct and fully lock-free queue
   
+
+TODO:
+
+ * Master perf
+ * Master gdb/lldb
+ * Test System tap
+ * Dr. Dobbs on // patterns
+ * More examples

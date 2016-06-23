@@ -180,7 +180,8 @@
 
   \begin{itemize}
   \item The art of sharing the CPU(s)
-  \item Kernel's role.
+  \item NP-complete problem
+  \item Kernel's role
   \item What is running ? Where ? For how long ?
   \item Are all the tasks equals ?
   \item What is the cost ?
@@ -299,7 +300,10 @@
   \frametitle{What's a syscall ?}
 
   \begin{itemize}
-  \item The way for the userland to talk to the kernel
+  \item The kernel API
+    \begin{itemize}
+    \item i.e: The only way for the userland to talk to the kernel
+    \end{itemize}
   \item Use processor's software interrupt mechanism (\emph{int 80})
     \begin{itemize}
     \item Context-switch to a predefined kernel handler
@@ -471,10 +475,14 @@
   \begin{itemize}
   \item Use disk as memory
   \item \textbf{Very} slow
+    \begin{itemize}
+    \item Memory access: ~ 100 ns
+    \item Disk access: ~ 1 ms = 1 000 000 ns
+    \end{itemize}
   \item Should never happen...
   \item ... but it's better than a failed allocation
   \item \verb+echo -15 > /proc/2592/oom_adj+
-  \item man 2 \emph{mlock}
+  \item man 2 \emph{mlock()}
   \end{itemize}
 \end{frame}
 
