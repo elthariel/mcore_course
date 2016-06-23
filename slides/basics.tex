@@ -4,79 +4,6 @@
 
 
 
-\subsection{Parallel computing}
-
-\begin{frame}
-  \frametitle{What is parallel computing ?}
-
-  \begin{quotation}
-    Parallel computing is a type of computation in which many calculations are carried out simultaneously, operating on the principle that large problems can often be divided into smaller ones, which are then solved at the same time.
-    There are several different forms of parallel computing: bit-level, instruction-level, data, and task parallelism.
-    Parallelism has been employed for many years [...] but interest in it has grown lately due to the physical constraints preventing frequency scaling.
-  \end{quotation}
-  \emph{Wikipedia}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Instruction-level parallelism}
-  \begin{itemize}
-  \item Branch prediction
-  \item Instruction pipelining
-  \item Hyper-threading
-  \item ...
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Task/Data-level parallelism}
-  \begin{itemize}
-  \item Some overlap between the two
-  \item Data-level
-    \begin{itemize}
-    \item SIMD
-    \item Producer/consumer pattern
-    \end{itemize}
-  \item Task Level
-    \begin{itemize}
-    \item Pipeline pattern
-    \end{itemize}
-  \item More on this later
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Why parallelism matters ?}
-  \begin{itemize}
-  \item Frequency scaling vs multi-core
-  \item Operating systems are multitask
-  \item Latency control
-  \item Important even for non-parallel programs
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Some history}
-
-  \begin{itemize}
-  \item Context switching for batches \emph{(Leo III, UK, 1961)}
-  \item Cooperative multitasking Time-sharing \emph{(CTSS, MIT, 1961)}
-    \begin{itemize}
-    \item IBM, MacOS, Win 3.1/9.x
-    \end{itemize}
-  \item Preemptive multitasking \emph{(Multics, Cambridge, 1964)}
-    \begin{itemize}
-    \item Multics, very influential OS.
-    \item Linux, OSX, Win NT+
-    \item Most OSes today
-    \end{itemize}
-  \item Virtual memory \emph{(Atlas/Burroughs, 1961/1962)}
-  \item Threads \emph{(OS/360, IBM, 1967)}
-  \end{itemize}
-\end{frame}
-
-
 
 \subsection{System concepts}
 \label{subsec:sysbase}
@@ -105,6 +32,26 @@
 
 
 
+
+\begin{frame}
+  \frametitle{CPU Execution pipeline}
+
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,height=0.4\textheight,keepaspectratio]{img/cpu_pipeline.png}
+  \end{center}
+
+
+  \begin{itemize}
+  \item IF = Instruction fetch
+  \item ID = Instruction decode
+  \item EX = Execute
+  \item MEM = Memory access
+  \item WB = Write back
+  \end{itemize}
+\end{frame}
+
+
+
 \begin{frame}
   \frametitle{Memory}
 
@@ -121,11 +68,23 @@
       \begin{itemize}
       \item L1: ~ 0.5 ns
       \item L2: ~ 7 ns
+      \item L3: ~ 15 ns
       \end{itemize}
     \item Memory: ~ 100 ns
-    \item SSD: ~ 150 000 ns
+    \item SSD: ~ 150 us
+    \item Disk read: ~ 1ms
+    \item US ping: ~ 150 ms
     \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \begin{center}
+    \includegraphics[width=1\textwidth,height=1\textheight,keepaspectratio]{img/latency.png}
+  \end{center}
+
 \end{frame}
 
 \begin{frame}
@@ -135,7 +94,12 @@
   \item NUMA for short
   \item Memory is split in nodes
   \item Each core has direct access to only one node
-  \item Access to other nodes is slower
+  \item Access to other nodes is shared (slower)
+  \item Different NUMA layouts
+    \begin{itemize}
+    \item 1:1
+    \item 1:n
+    \end{itemize}
   \end{itemize}
 
   \begin{center}
@@ -191,6 +155,90 @@
   \item running ``at the same time''
   \item but actually sharing Memory and CPU Time
   \item Understanding the kernel is \textbf{vital}
+  \end{itemize}
+\end{frame}
+
+
+
+
+\subsection{Parallel computing}
+
+\begin{frame}
+  \frametitle{What is parallel computing ?}
+
+  \begin{quotation}
+    Parallel computing is a type of computation in which many calculations are carried out simultaneously, operating on the principle that large problems can often be divided into smaller ones, which are then solved at the same time.
+    There are several different forms of parallel computing: bit-level, instruction-level, data, and task parallelism.
+    Parallelism has been employed for many years [...] but interest in it has grown lately due to the physical constraints preventing frequency scaling.
+  \end{quotation}
+  \emph{Wikipedia}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Instruction-level parallelism}
+  \begin{itemize}
+  \item Instruction pipelining
+  \item Branch prediction
+    \begin{itemize}
+    \item Predict \emph{if-then-else} to prefetch code
+    \end{itemize}
+  \item Hyper-threading
+    \begin{itemize}
+    \item \emph{Logical} core
+    \item Fill the bubbles in the instruction pipeline
+    \end{itemize}
+  \item ...
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Task/Data-level parallelism}
+  \begin{itemize}
+  \item Task Level
+    \begin{itemize}
+    \item Do X and Y in parallel
+    \item Pipeline pattern
+    \end{itemize}
+  \item Data-level
+    \begin{itemize}
+    \item Split X and split the parts in parallel
+    \item SIMD
+    \item Producer/consumer pattern
+    \end{itemize}
+  \item Some overlap between the two
+  \item More on this topic later
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Why parallelism matters ?}
+  \begin{itemize}
+  \item Frequency scaling vs multi-core
+  \item Operating systems are multitask
+  \item Latency control
+  \item Important even for non-parallel programs
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Some history}
+
+  \begin{itemize}
+  \item Context switching for batches \emph{(Leo III, UK, 1961)}
+  \item Cooperative multitasking Time-sharing \emph{(CTSS, MIT, 1961)}
+    \begin{itemize}
+    \item IBM, MacOS, Win 3.1/9.x
+    \end{itemize}
+  \item Preemptive multitasking \emph{(Multics, Cambridge, 1964)}
+    \begin{itemize}
+    \item Multics, very influential OS.
+    \item Linux, OSX, Win NT+
+    \item Most OSes today
+    \end{itemize}
+  \item Virtual memory \emph{(Atlas/Burroughs, 1961/1962)}
+  \item Threads \emph{(OS/360, IBM, 1967)}
   \end{itemize}
 \end{frame}
 
@@ -259,6 +307,7 @@
     \end{itemize}
   \item Creating processes is \emph{cheap}
     \begin{itemize}
+    \item unlike Windows
     \item Many optimizations (COW, ...)
     \end{itemize}
   \end{itemize}

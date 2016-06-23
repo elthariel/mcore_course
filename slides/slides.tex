@@ -1,21 +1,37 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
+\usepackage{textcomp}
 \usepackage{minted}
 \usepackage{lmodern}
 \usepackage{graphicx}
+\usepackage{multicol}
 \usepackage[T1]{fontenc}
 \usepackage[babel=true]{microtype}
+
+
 \usetheme{Montpellier}
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}[text line]{\tiny \color{gray} \textcopyright 2014-2016 Julien BALLET -  All rights reserved}
+
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right, rightskip=1mm, leftskip=1mm]{titlelike}
+        \insertauthor\hfill\textcopyright2014-2016.  All rights reserved\hfill\insertframenumber%
+    \end{beamercolorbox}
+}
 
 \title{Parallel programming on multicore architecture}
-\author{Julien 'Lta' BALLET}\institute{Ambient-IT}
+\author{Julien 'Lta' BALLET}
+\institute{\includegraphics[width=0.4\textwidth,height=0.2\textheight,keepaspectratio]{img/logo_ambient_it.png}
+}
 
 \begin{document}
 
 
 \AtBeginSection[]{
   \begin{frame}{Summary}
-    \small \tableofcontents[currentsection, hideothersubsections]
+    \begin{multicols}{2}
+      \small \tableofcontents[currentsection, hideothersubsections]
+    \end{multicols}
   \end{frame}
 }
 

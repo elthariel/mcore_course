@@ -88,10 +88,33 @@
     \begin{itemize}
     \item The thread function returns
     \item \emph{pthread\_exit()} exits the current thread
-    \item \emph{pthread\_cancel()} exits another thread
+    \item \emph{pthread\_cancel()} ask for another thread to exit
     \end{itemize}
   \end{itemize}
 \end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Cancellation}
+
+  \begin{itemize}
+  \item \emph{pthread\_cancel()} sends cancellation request
+  \item Thread can configure their policy (\emph{pthread\_setcanceltype()})
+    \begin{itemize}
+    \item Asynchronous: Exit ASAP
+    \item Deferred: Exit on a cancellation point
+    \end{itemize}
+  \item Can be disabled with \emph{pthread\_setcancelstate()}
+  \item Cleanup handlers with \emph{pthread\_cleanup\_push}
+  \item Cancellation points:
+    \begin{itemize}
+    \item \emph{pthread\_testcancel()}
+    \item Certain syscalls: see ``man 7 pthreads''
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 
 
 % XXX: Add some examples
@@ -205,6 +228,7 @@
     \item \emph{pthread\_barrier\_init()} and \emph{\_destroy()}
     \item \emph{pthread\_barrier\_wait()}
     \end{itemize}
+  \item != Memory barriers
   \end{itemize}
 \end{frame}
 
@@ -213,8 +237,11 @@
   \frametitle{Spinlocks}
 
   \begin{itemize}
-  \item Busy-wait based mutexes
-  \item Avoid context switches
+  \item Busy-wait based locks
+    \begin{itemize}
+    \item Avoid context switches
+    \item Waste CPU Time
+    \end{itemize}
   \item Good for short lived locks
   \item API Calls:
     \begin{itemize}
@@ -498,7 +525,7 @@
 
 
 \begin{frame}[fragile]
-  \frametitle{std::atomic example}
+  \frametitle{std::async example}
 
   \begin{minted}[fontsize=\scriptsize]{cpp}
     template <typename ITER>

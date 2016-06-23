@@ -23,346 +23,352 @@
 \headcommand {\beamer@subsectionpages {5}{5}}
 \headcommand {\slideentry {3}{0}{1}{6/6}{}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{7}{Parallel computing}}\headcommand {\beamer@subsectionpages {6}{6}}
-\headcommand {\slideentry {3}{1}{1}{7/7}{Parallel computing}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{7}{System concepts}}\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\slideentry {3}{1}{1}{7/7}{System concepts}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\slideentry {3}{1}{2}{8/8}{Parallel computing}{0}}
+\headcommand {\slideentry {3}{1}{2}{8/8}{System concepts}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\slideentry {3}{1}{3}{9/9}{Parallel computing}{0}}
+\headcommand {\slideentry {3}{1}{3}{9/9}{System concepts}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\slideentry {3}{1}{4}{10/10}{Parallel computing}{0}}
+\headcommand {\slideentry {3}{1}{4}{10/10}{System concepts}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {3}{1}{5}{11/11}{Parallel computing}{0}}
+\headcommand {\slideentry {3}{1}{5}{11/11}{System concepts}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\slideentry {3}{1}{6}{12/12}{Parallel computing}{0}}
+\headcommand {\slideentry {3}{1}{6}{12/12}{System concepts}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{13}{System concepts}}\headcommand {\beamer@subsectionpages {7}{12}}
-\headcommand {\slideentry {3}{2}{1}{13/13}{System concepts}{0}}
+\headcommand {\slideentry {3}{1}{7}{13/13}{System concepts}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\slideentry {3}{2}{2}{14/14}{System concepts}{0}}
+\headcommand {\slideentry {3}{1}{8}{14/14}{System concepts}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\slideentry {3}{2}{3}{15/15}{System concepts}{0}}
+\headcommand {\slideentry {3}{1}{9}{15/15}{System concepts}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\slideentry {3}{2}{4}{16/16}{System concepts}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{16}{Parallel computing}}\headcommand {\beamer@subsectionpages {7}{15}}
+\headcommand {\slideentry {3}{2}{1}{16/16}{Parallel computing}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\slideentry {3}{2}{5}{17/17}{System concepts}{0}}
+\headcommand {\slideentry {3}{2}{2}{17/17}{Parallel computing}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\slideentry {3}{2}{6}{18/18}{System concepts}{0}}
+\headcommand {\slideentry {3}{2}{3}{18/18}{Parallel computing}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\slideentry {3}{2}{7}{19/19}{System concepts}{0}}
+\headcommand {\slideentry {3}{2}{4}{19/19}{Parallel computing}{0}}
 \headcommand {\beamer@framepages {19}{19}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{20}{The Unix/Linux model}}\headcommand {\beamer@subsectionpages {13}{19}}
-\headcommand {\slideentry {3}{3}{1}{20/20}{The Unix/Linux model}{0}}
+\headcommand {\slideentry {3}{2}{5}{20/20}{Parallel computing}{0}}
 \headcommand {\beamer@framepages {20}{20}}
-\headcommand {\slideentry {3}{3}{2}{21/21}{The Unix/Linux model}{0}}
+\headcommand {\slideentry {3}{2}{6}{21/21}{Parallel computing}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\slideentry {3}{3}{3}{22/22}{The Unix/Linux model}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{22}{The Unix/Linux model}}\headcommand {\beamer@subsectionpages {16}{21}}
+\headcommand {\slideentry {3}{3}{1}{22/22}{The Unix/Linux model}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\slideentry {3}{3}{4}{23/23}{The Unix/Linux model}{0}}
+\headcommand {\slideentry {3}{3}{2}{23/23}{The Unix/Linux model}{0}}
 \headcommand {\beamer@framepages {23}{23}}
-\headcommand {\slideentry {3}{3}{5}{24/24}{The Unix/Linux model}{0}}
+\headcommand {\slideentry {3}{3}{3}{24/24}{The Unix/Linux model}{0}}
 \headcommand {\beamer@framepages {24}{24}}
-\headcommand {\slideentry {3}{3}{6}{25/25}{The Unix/Linux model}{0}}
+\headcommand {\slideentry {3}{3}{4}{25/25}{The Unix/Linux model}{0}}
 \headcommand {\beamer@framepages {25}{25}}
-\headcommand {\slideentry {3}{3}{7}{26/26}{The Unix/Linux model}{0}}
+\headcommand {\slideentry {3}{3}{5}{26/26}{The Unix/Linux model}{0}}
 \headcommand {\beamer@framepages {26}{26}}
-\headcommand {\sectionentry {4}{System APIs}{27}{System APIs}{0}}
-\headcommand {\beamer@sectionpages {6}{26}}
-\headcommand {\beamer@subsectionpages {20}{26}}
-\headcommand {\slideentry {4}{0}{1}{27/27}{}{0}}
+\headcommand {\slideentry {3}{3}{6}{27/27}{The Unix/Linux model}{0}}
 \headcommand {\beamer@framepages {27}{27}}
-\headcommand {\slideentry {4}{0}{2}{28/28}{}{0}}
+\headcommand {\slideentry {3}{3}{7}{28/28}{The Unix/Linux model}{0}}
 \headcommand {\beamer@framepages {28}{28}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{29}{POSIX Threads}}\headcommand {\beamer@subsectionpages {27}{28}}
-\headcommand {\slideentry {4}{1}{1}{29/29}{POSIX Threads}{0}}
+\headcommand {\sectionentry {4}{System APIs}{29}{System APIs}{0}}
+\headcommand {\beamer@sectionpages {6}{28}}
+\headcommand {\beamer@subsectionpages {22}{28}}
+\headcommand {\slideentry {4}{0}{1}{29/29}{}{0}}
 \headcommand {\beamer@framepages {29}{29}}
-\headcommand {\slideentry {4}{1}{2}{30/30}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{0}{2}{30/30}{}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\slideentry {4}{1}{3}{31/31}{POSIX Threads}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{31}{POSIX Threads}}\headcommand {\beamer@subsectionpages {29}{30}}
+\headcommand {\slideentry {4}{1}{1}{31/31}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {31}{31}}
-\headcommand {\slideentry {4}{1}{4}{32/32}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{2}{32/32}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\slideentry {4}{1}{5}{33/33}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{3}{33/33}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {33}{33}}
-\headcommand {\slideentry {4}{1}{6}{34/34}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{4}{34/34}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {34}{34}}
-\headcommand {\slideentry {4}{1}{7}{35/35}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{5}{35/35}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {35}{35}}
-\headcommand {\slideentry {4}{1}{8}{36/36}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{6}{36/36}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {36}{36}}
-\headcommand {\slideentry {4}{1}{9}{37/37}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{7}{37/37}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {37}{37}}
-\headcommand {\slideentry {4}{1}{10}{38/38}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{8}{38/38}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {38}{38}}
-\headcommand {\slideentry {4}{1}{11}{39/39}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{9}{39/39}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {39}{39}}
-\headcommand {\slideentry {4}{1}{12}{40/40}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{10}{40/40}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {40}{40}}
-\headcommand {\slideentry {4}{1}{13}{41/41}{POSIX Threads}{0}}
+\headcommand {\slideentry {4}{1}{11}{41/41}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {41}{41}}
-\headcommand {\beamer@subsectionentry {0}{4}{2}{42}{C++ 11}}\headcommand {\beamer@subsectionpages {29}{41}}
-\headcommand {\slideentry {4}{2}{1}{42/42}{C++ 11}{0}}
+\headcommand {\slideentry {4}{1}{12}{42/42}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {42}{42}}
-\headcommand {\slideentry {4}{2}{2}{43/43}{C++ 11}{0}}
+\headcommand {\slideentry {4}{1}{13}{43/43}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {43}{43}}
-\headcommand {\slideentry {4}{2}{3}{44/44}{C++ 11}{0}}
+\headcommand {\slideentry {4}{1}{14}{44/44}{POSIX Threads}{0}}
 \headcommand {\beamer@framepages {44}{44}}
-\headcommand {\slideentry {4}{2}{4}{45/45}{C++ 11}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{45}{C++ 11}}\headcommand {\beamer@subsectionpages {31}{44}}
+\headcommand {\slideentry {4}{2}{1}{45/45}{C++ 11}{0}}
 \headcommand {\beamer@framepages {45}{45}}
-\headcommand {\slideentry {4}{2}{5}{46/46}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{2}{46/46}{C++ 11}{0}}
 \headcommand {\beamer@framepages {46}{46}}
-\headcommand {\slideentry {4}{2}{6}{47/47}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{3}{47/47}{C++ 11}{0}}
 \headcommand {\beamer@framepages {47}{47}}
-\headcommand {\slideentry {4}{2}{7}{48/48}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{4}{48/48}{C++ 11}{0}}
 \headcommand {\beamer@framepages {48}{48}}
-\headcommand {\slideentry {4}{2}{8}{49/49}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{5}{49/49}{C++ 11}{0}}
 \headcommand {\beamer@framepages {49}{49}}
-\headcommand {\slideentry {4}{2}{9}{50/50}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{6}{50/50}{C++ 11}{0}}
 \headcommand {\beamer@framepages {50}{50}}
-\headcommand {\slideentry {4}{2}{10}{51/51}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{7}{51/51}{C++ 11}{0}}
 \headcommand {\beamer@framepages {51}{51}}
-\headcommand {\slideentry {4}{2}{11}{52/52}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{8}{52/52}{C++ 11}{0}}
 \headcommand {\beamer@framepages {52}{52}}
-\headcommand {\slideentry {4}{2}{12}{53/53}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{9}{53/53}{C++ 11}{0}}
 \headcommand {\beamer@framepages {53}{53}}
-\headcommand {\slideentry {4}{2}{13}{54/54}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{10}{54/54}{C++ 11}{0}}
 \headcommand {\beamer@framepages {54}{54}}
-\headcommand {\slideentry {4}{2}{14}{55/55}{C++ 11}{0}}
+\headcommand {\slideentry {4}{2}{11}{55/55}{C++ 11}{0}}
 \headcommand {\beamer@framepages {55}{55}}
-\headcommand {\beamer@subsectionentry {0}{4}{3}{56}{A quick tour of process based parallelism}}\headcommand {\beamer@subsectionpages {42}{55}}
-\headcommand {\slideentry {4}{3}{1}{56/56}{A quick tour of process based parallelism}{0}}
+\headcommand {\slideentry {4}{2}{12}{56/56}{C++ 11}{0}}
 \headcommand {\beamer@framepages {56}{56}}
-\headcommand {\slideentry {4}{3}{2}{57/57}{A quick tour of process based parallelism}{0}}
+\headcommand {\slideentry {4}{2}{13}{57/57}{C++ 11}{0}}
 \headcommand {\beamer@framepages {57}{57}}
-\headcommand {\slideentry {4}{3}{3}{58/58}{A quick tour of process based parallelism}{0}}
+\headcommand {\slideentry {4}{2}{14}{58/58}{C++ 11}{0}}
 \headcommand {\beamer@framepages {58}{58}}
-\headcommand {\slideentry {4}{3}{4}{59/59}{A quick tour of process based parallelism}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{59}{A quick tour of process based parallelism}}\headcommand {\beamer@subsectionpages {45}{58}}
+\headcommand {\slideentry {4}{3}{1}{59/59}{A quick tour of process based parallelism}{0}}
 \headcommand {\beamer@framepages {59}{59}}
-\headcommand {\slideentry {4}{3}{5}{60/60}{A quick tour of process based parallelism}{0}}
+\headcommand {\slideentry {4}{3}{2}{60/60}{A quick tour of process based parallelism}{0}}
 \headcommand {\beamer@framepages {60}{60}}
-\headcommand {\slideentry {4}{3}{6}{61/61}{A quick tour of process based parallelism}{0}}
+\headcommand {\slideentry {4}{3}{3}{61/61}{A quick tour of process based parallelism}{0}}
 \headcommand {\beamer@framepages {61}{61}}
-\headcommand {\slideentry {4}{3}{7}{62/62}{A quick tour of process based parallelism}{0}}
+\headcommand {\slideentry {4}{3}{4}{62/62}{A quick tour of process based parallelism}{0}}
 \headcommand {\beamer@framepages {62}{62}}
-\headcommand {\sectionentry {5}{Designing parallel algorithms}{63}{Designing parallel algorithms}{0}}
-\headcommand {\beamer@sectionpages {27}{62}}
-\headcommand {\beamer@subsectionpages {56}{62}}
-\headcommand {\slideentry {5}{0}{1}{63/63}{}{0}}
+\headcommand {\slideentry {4}{3}{5}{63/63}{A quick tour of process based parallelism}{0}}
 \headcommand {\beamer@framepages {63}{63}}
-\headcommand {\slideentry {5}{0}{2}{64/64}{}{0}}
+\headcommand {\slideentry {4}{3}{6}{64/64}{A quick tour of process based parallelism}{0}}
 \headcommand {\beamer@framepages {64}{64}}
-\headcommand {\beamer@subsectionentry {0}{5}{1}{65}{Know the problem}}\headcommand {\beamer@subsectionpages {63}{64}}
-\headcommand {\slideentry {5}{1}{1}{65/65}{Know the problem}{0}}
+\headcommand {\slideentry {4}{3}{7}{65/65}{A quick tour of process based parallelism}{0}}
 \headcommand {\beamer@framepages {65}{65}}
-\headcommand {\slideentry {5}{1}{2}{66/66}{Know the problem}{0}}
+\headcommand {\sectionentry {5}{Designing parallel algorithms}{66}{Designing parallel algorithms}{0}}
+\headcommand {\beamer@sectionpages {29}{65}}
+\headcommand {\beamer@subsectionpages {59}{65}}
+\headcommand {\slideentry {5}{0}{1}{66/66}{}{0}}
 \headcommand {\beamer@framepages {66}{66}}
-\headcommand {\slideentry {5}{1}{3}{67/67}{Know the problem}{0}}
+\headcommand {\slideentry {5}{0}{2}{67/67}{}{0}}
 \headcommand {\beamer@framepages {67}{67}}
-\headcommand {\slideentry {5}{1}{4}{68/68}{Know the problem}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{68}{Know the problem}}\headcommand {\beamer@subsectionpages {66}{67}}
+\headcommand {\slideentry {5}{1}{1}{68/68}{Know the problem}{0}}
 \headcommand {\beamer@framepages {68}{68}}
-\headcommand {\slideentry {5}{1}{5}{69/69}{Know the problem}{0}}
+\headcommand {\slideentry {5}{1}{2}{69/69}{Know the problem}{0}}
 \headcommand {\beamer@framepages {69}{69}}
-\headcommand {\slideentry {5}{1}{6}{70/70}{Know the problem}{0}}
+\headcommand {\slideentry {5}{1}{3}{70/70}{Know the problem}{0}}
 \headcommand {\beamer@framepages {70}{70}}
-\headcommand {\slideentry {5}{1}{7}{71/71}{Know the problem}{0}}
+\headcommand {\slideentry {5}{1}{4}{71/71}{Know the problem}{0}}
 \headcommand {\beamer@framepages {71}{71}}
-\headcommand {\beamer@subsectionentry {0}{5}{2}{72}{Partitioning}}\headcommand {\beamer@subsectionpages {65}{71}}
-\headcommand {\slideentry {5}{2}{1}{72/72}{Partitioning}{0}}
+\headcommand {\slideentry {5}{1}{5}{72/72}{Know the problem}{0}}
 \headcommand {\beamer@framepages {72}{72}}
-\headcommand {\slideentry {5}{2}{2}{73/73}{Partitioning}{0}}
+\headcommand {\slideentry {5}{1}{6}{73/73}{Know the problem}{0}}
 \headcommand {\beamer@framepages {73}{73}}
-\headcommand {\slideentry {5}{2}{3}{74/74}{Partitioning}{0}}
+\headcommand {\slideentry {5}{1}{7}{74/74}{Know the problem}{0}}
 \headcommand {\beamer@framepages {74}{74}}
-\headcommand {\slideentry {5}{2}{4}{75/75}{Partitioning}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{75}{Partitioning}}\headcommand {\beamer@subsectionpages {68}{74}}
+\headcommand {\slideentry {5}{2}{1}{75/75}{Partitioning}{0}}
 \headcommand {\beamer@framepages {75}{75}}
-\headcommand {\slideentry {5}{2}{5}{76/76}{Partitioning}{0}}
+\headcommand {\slideentry {5}{2}{2}{76/76}{Partitioning}{0}}
 \headcommand {\beamer@framepages {76}{76}}
-\headcommand {\slideentry {5}{2}{6}{77/77}{Partitioning}{0}}
+\headcommand {\slideentry {5}{2}{3}{77/77}{Partitioning}{0}}
 \headcommand {\beamer@framepages {77}{77}}
-\headcommand {\beamer@subsectionentry {0}{5}{3}{78}{Task communication}}\headcommand {\beamer@subsectionpages {72}{77}}
-\headcommand {\slideentry {5}{3}{1}{78/78}{Task communication}{0}}
+\headcommand {\slideentry {5}{2}{4}{78/78}{Partitioning}{0}}
 \headcommand {\beamer@framepages {78}{78}}
-\headcommand {\slideentry {5}{3}{2}{79/79}{Task communication}{0}}
+\headcommand {\slideentry {5}{2}{5}{79/79}{Partitioning}{0}}
 \headcommand {\beamer@framepages {79}{79}}
-\headcommand {\slideentry {5}{3}{3}{80/80}{Task communication}{0}}
+\headcommand {\slideentry {5}{2}{6}{80/80}{Partitioning}{0}}
 \headcommand {\beamer@framepages {80}{80}}
-\headcommand {\slideentry {5}{3}{4}{81/81}{Task communication}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{81}{Task communication}}\headcommand {\beamer@subsectionpages {75}{80}}
+\headcommand {\slideentry {5}{3}{1}{81/81}{Task communication}{0}}
 \headcommand {\beamer@framepages {81}{81}}
-\headcommand {\slideentry {5}{3}{5}{82/82}{Task communication}{0}}
+\headcommand {\slideentry {5}{3}{2}{82/82}{Task communication}{0}}
 \headcommand {\beamer@framepages {82}{82}}
-\headcommand {\beamer@subsectionentry {0}{5}{4}{83}{Load balancing and Tuning}}\headcommand {\beamer@subsectionpages {78}{82}}
-\headcommand {\slideentry {5}{4}{1}{83/83}{Load balancing and Tuning}{0}}
+\headcommand {\slideentry {5}{3}{3}{83/83}{Task communication}{0}}
 \headcommand {\beamer@framepages {83}{83}}
-\headcommand {\slideentry {5}{4}{2}{84/84}{Load balancing and Tuning}{0}}
+\headcommand {\slideentry {5}{3}{4}{84/84}{Task communication}{0}}
 \headcommand {\beamer@framepages {84}{84}}
-\headcommand {\slideentry {5}{4}{3}{85/85}{Load balancing and Tuning}{0}}
+\headcommand {\slideentry {5}{3}{5}{85/85}{Task communication}{0}}
 \headcommand {\beamer@framepages {85}{85}}
-\headcommand {\slideentry {5}{4}{4}{86/86}{Load balancing and Tuning}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{4}{86}{Load balancing and Tuning}}\headcommand {\beamer@subsectionpages {81}{85}}
+\headcommand {\slideentry {5}{4}{1}{86/86}{Load balancing and Tuning}{0}}
 \headcommand {\beamer@framepages {86}{86}}
-\headcommand {\slideentry {5}{4}{5}{87/87}{Load balancing and Tuning}{0}}
+\headcommand {\slideentry {5}{4}{2}{87/87}{Load balancing and Tuning}{0}}
 \headcommand {\beamer@framepages {87}{87}}
-\headcommand {\slideentry {5}{4}{6}{88/88}{Load balancing and Tuning}{0}}
+\headcommand {\slideentry {5}{4}{3}{88/88}{Load balancing and Tuning}{0}}
 \headcommand {\beamer@framepages {88}{88}}
-\headcommand {\beamer@subsectionentry {0}{5}{5}{89}{Common patterns}}\headcommand {\beamer@subsectionpages {83}{88}}
-\headcommand {\slideentry {5}{5}{1}{89/89}{Common patterns}{0}}
+\headcommand {\slideentry {5}{4}{4}{89/89}{Load balancing and Tuning}{0}}
 \headcommand {\beamer@framepages {89}{89}}
-\headcommand {\slideentry {5}{5}{2}{90/90}{Common patterns}{0}}
+\headcommand {\slideentry {5}{4}{5}{90/90}{Load balancing and Tuning}{0}}
 \headcommand {\beamer@framepages {90}{90}}
-\headcommand {\sectionentry {6}{Hardware and Kernel}{91}{Hardware and Kernel}{0}}
-\headcommand {\beamer@sectionpages {63}{90}}
-\headcommand {\beamer@subsectionpages {89}{90}}
-\headcommand {\slideentry {6}{0}{1}{91/91}{}{0}}
+\headcommand {\slideentry {5}{4}{6}{91/91}{Load balancing and Tuning}{0}}
 \headcommand {\beamer@framepages {91}{91}}
-\headcommand {\beamer@subsectionentry {0}{6}{1}{92}{Some hardware considerations}}\headcommand {\beamer@subsectionpages {91}{91}}
-\headcommand {\slideentry {6}{1}{1}{92/92}{Some hardware considerations}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{5}{92}{Common patterns}}\headcommand {\beamer@subsectionpages {86}{91}}
+\headcommand {\slideentry {5}{5}{1}{92/92}{Common patterns}{0}}
 \headcommand {\beamer@framepages {92}{92}}
-\headcommand {\slideentry {6}{1}{2}{93/93}{Some hardware considerations}{0}}
+\headcommand {\slideentry {5}{5}{2}{93/93}{Common patterns}{0}}
 \headcommand {\beamer@framepages {93}{93}}
-\headcommand {\slideentry {6}{1}{3}{94/94}{Some hardware considerations}{0}}
+\headcommand {\sectionentry {6}{Hardware and Kernel}{94}{Hardware and Kernel}{0}}
+\headcommand {\beamer@sectionpages {66}{93}}
+\headcommand {\beamer@subsectionpages {92}{93}}
+\headcommand {\slideentry {6}{0}{1}{94/94}{}{0}}
 \headcommand {\beamer@framepages {94}{94}}
-\headcommand {\slideentry {6}{1}{4}{95/95}{Some hardware considerations}{0}}
+\headcommand {\beamer@subsectionentry {0}{6}{1}{95}{Some hardware considerations}}\headcommand {\beamer@subsectionpages {94}{94}}
+\headcommand {\slideentry {6}{1}{1}{95/95}{Some hardware considerations}{0}}
 \headcommand {\beamer@framepages {95}{95}}
-\headcommand {\slideentry {6}{1}{5}{96/96}{Some hardware considerations}{0}}
+\headcommand {\slideentry {6}{1}{2}{96/96}{Some hardware considerations}{0}}
 \headcommand {\beamer@framepages {96}{96}}
-\headcommand {\slideentry {6}{1}{6}{97/97}{Some hardware considerations}{0}}
+\headcommand {\slideentry {6}{1}{3}{97/97}{Some hardware considerations}{0}}
 \headcommand {\beamer@framepages {97}{97}}
-\headcommand {\slideentry {6}{1}{7}{98/98}{Some hardware considerations}{0}}
+\headcommand {\slideentry {6}{1}{4}{98/98}{Some hardware considerations}{0}}
 \headcommand {\beamer@framepages {98}{98}}
-\headcommand {\slideentry {6}{1}{8}{99/99}{Some hardware considerations}{0}}
+\headcommand {\slideentry {6}{1}{5}{99/99}{Some hardware considerations}{0}}
 \headcommand {\beamer@framepages {99}{99}}
-\headcommand {\beamer@subsectionentry {0}{6}{2}{100}{Scheduling}}\headcommand {\beamer@subsectionpages {92}{99}}
-\headcommand {\slideentry {6}{2}{1}{100/100}{Scheduling}{0}}
+\headcommand {\slideentry {6}{1}{6}{100/100}{Some hardware considerations}{0}}
 \headcommand {\beamer@framepages {100}{100}}
-\headcommand {\slideentry {6}{2}{2}{101/101}{Scheduling}{0}}
+\headcommand {\slideentry {6}{1}{7}{101/101}{Some hardware considerations}{0}}
 \headcommand {\beamer@framepages {101}{101}}
-\headcommand {\slideentry {6}{2}{3}{102/102}{Scheduling}{0}}
+\headcommand {\slideentry {6}{1}{8}{102/102}{Some hardware considerations}{0}}
 \headcommand {\beamer@framepages {102}{102}}
-\headcommand {\slideentry {6}{2}{4}{103/103}{Scheduling}{0}}
+\headcommand {\beamer@subsectionentry {0}{6}{2}{103}{Scheduling}}\headcommand {\beamer@subsectionpages {95}{102}}
+\headcommand {\slideentry {6}{2}{1}{103/103}{Scheduling}{0}}
 \headcommand {\beamer@framepages {103}{103}}
-\headcommand {\slideentry {6}{2}{5}{104/104}{Scheduling}{0}}
+\headcommand {\slideentry {6}{2}{2}{104/104}{Scheduling}{0}}
 \headcommand {\beamer@framepages {104}{104}}
-\headcommand {\slideentry {6}{2}{6}{105/105}{Scheduling}{0}}
+\headcommand {\slideentry {6}{2}{3}{105/105}{Scheduling}{0}}
 \headcommand {\beamer@framepages {105}{105}}
-\headcommand {\slideentry {6}{2}{7}{106/106}{Scheduling}{0}}
+\headcommand {\slideentry {6}{2}{4}{106/106}{Scheduling}{0}}
 \headcommand {\beamer@framepages {106}{106}}
-\headcommand {\slideentry {6}{2}{8}{107/107}{Scheduling}{0}}
+\headcommand {\slideentry {6}{2}{5}{107/107}{Scheduling}{0}}
 \headcommand {\beamer@framepages {107}{107}}
-\headcommand {\slideentry {6}{2}{9}{108/108}{Scheduling}{0}}
+\headcommand {\slideentry {6}{2}{6}{108/108}{Scheduling}{0}}
 \headcommand {\beamer@framepages {108}{108}}
-\headcommand {\beamer@subsectionentry {0}{6}{3}{109}{Syscall and real-time}}\headcommand {\beamer@subsectionpages {100}{108}}
-\headcommand {\slideentry {6}{3}{1}{109/109}{Syscall and real-time}{0}}
+\headcommand {\slideentry {6}{2}{7}{109/109}{Scheduling}{0}}
 \headcommand {\beamer@framepages {109}{109}}
-\headcommand {\slideentry {6}{3}{2}{110/110}{Syscall and real-time}{0}}
+\headcommand {\slideentry {6}{2}{8}{110/110}{Scheduling}{0}}
 \headcommand {\beamer@framepages {110}{110}}
-\headcommand {\slideentry {6}{3}{3}{111/111}{Syscall and real-time}{0}}
+\headcommand {\slideentry {6}{2}{9}{111/111}{Scheduling}{0}}
 \headcommand {\beamer@framepages {111}{111}}
-\headcommand {\slideentry {6}{3}{4}{112/112}{Syscall and real-time}{0}}
+\headcommand {\beamer@subsectionentry {0}{6}{3}{112}{Syscall and real-time}}\headcommand {\beamer@subsectionpages {103}{111}}
+\headcommand {\slideentry {6}{3}{1}{112/112}{Syscall and real-time}{0}}
 \headcommand {\beamer@framepages {112}{112}}
-\headcommand {\slideentry {6}{3}{5}{113/113}{Syscall and real-time}{0}}
+\headcommand {\slideentry {6}{3}{2}{113/113}{Syscall and real-time}{0}}
 \headcommand {\beamer@framepages {113}{113}}
-\headcommand {\slideentry {6}{3}{6}{114/114}{Syscall and real-time}{0}}
+\headcommand {\slideentry {6}{3}{3}{114/114}{Syscall and real-time}{0}}
 \headcommand {\beamer@framepages {114}{114}}
-\headcommand {\beamer@subsectionentry {0}{6}{4}{115}{Memory management}}\headcommand {\beamer@subsectionpages {109}{114}}
-\headcommand {\slideentry {6}{4}{1}{115/115}{Memory management}{0}}
+\headcommand {\slideentry {6}{3}{4}{115/115}{Syscall and real-time}{0}}
 \headcommand {\beamer@framepages {115}{115}}
-\headcommand {\slideentry {6}{4}{2}{116/116}{Memory management}{0}}
+\headcommand {\slideentry {6}{3}{5}{116/116}{Syscall and real-time}{0}}
 \headcommand {\beamer@framepages {116}{116}}
-\headcommand {\slideentry {6}{4}{3}{117/117}{Memory management}{0}}
+\headcommand {\slideentry {6}{3}{6}{117/117}{Syscall and real-time}{0}}
 \headcommand {\beamer@framepages {117}{117}}
-\headcommand {\slideentry {6}{4}{4}{118/118}{Memory management}{0}}
+\headcommand {\beamer@subsectionentry {0}{6}{4}{118}{Memory management}}\headcommand {\beamer@subsectionpages {112}{117}}
+\headcommand {\slideentry {6}{4}{1}{118/118}{Memory management}{0}}
 \headcommand {\beamer@framepages {118}{118}}
-\headcommand {\slideentry {6}{4}{5}{119/119}{Memory management}{0}}
+\headcommand {\slideentry {6}{4}{2}{119/119}{Memory management}{0}}
 \headcommand {\beamer@framepages {119}{119}}
-\headcommand {\beamer@subsectionentry {0}{6}{5}{120}{Errors and Performance}}\headcommand {\beamer@subsectionpages {115}{119}}
-\headcommand {\slideentry {6}{5}{1}{120/120}{Errors and Performance}{0}}
+\headcommand {\slideentry {6}{4}{3}{120/120}{Memory management}{0}}
 \headcommand {\beamer@framepages {120}{120}}
-\headcommand {\slideentry {6}{5}{2}{121/121}{Errors and Performance}{0}}
+\headcommand {\slideentry {6}{4}{4}{121/121}{Memory management}{0}}
 \headcommand {\beamer@framepages {121}{121}}
-\headcommand {\slideentry {6}{5}{3}{122/122}{Errors and Performance}{0}}
+\headcommand {\slideentry {6}{4}{5}{122/122}{Memory management}{0}}
 \headcommand {\beamer@framepages {122}{122}}
-\headcommand {\slideentry {6}{5}{4}{123/123}{Errors and Performance}{0}}
+\headcommand {\beamer@subsectionentry {0}{6}{5}{123}{Errors and Performance}}\headcommand {\beamer@subsectionpages {118}{122}}
+\headcommand {\slideentry {6}{5}{1}{123/123}{Errors and Performance}{0}}
 \headcommand {\beamer@framepages {123}{123}}
-\headcommand {\slideentry {6}{5}{5}{124/124}{Errors and Performance}{0}}
+\headcommand {\slideentry {6}{5}{2}{124/124}{Errors and Performance}{0}}
 \headcommand {\beamer@framepages {124}{124}}
-\headcommand {\sectionentry {7}{Tools and Libraries}{125}{Tools and Libraries}{0}}
-\headcommand {\beamer@sectionpages {91}{124}}
-\headcommand {\beamer@subsectionpages {120}{124}}
-\headcommand {\slideentry {7}{0}{1}{125/125}{}{0}}
+\headcommand {\slideentry {6}{5}{3}{125/125}{Errors and Performance}{0}}
 \headcommand {\beamer@framepages {125}{125}}
-\headcommand {\slideentry {7}{0}{2}{126/126}{}{0}}
+\headcommand {\slideentry {6}{5}{4}{126/126}{Errors and Performance}{0}}
 \headcommand {\beamer@framepages {126}{126}}
-\headcommand {\slideentry {7}{0}{3}{127/127}{}{0}}
+\headcommand {\slideentry {6}{5}{5}{127/127}{Errors and Performance}{0}}
 \headcommand {\beamer@framepages {127}{127}}
-\headcommand {\beamer@subsectionentry {0}{7}{1}{128}{Debug tools}}\headcommand {\beamer@subsectionpages {125}{127}}
-\headcommand {\slideentry {7}{1}{1}{128/128}{Debug tools}{0}}
+\headcommand {\sectionentry {7}{Tools and Libraries}{128}{Tools and Libraries}{0}}
+\headcommand {\beamer@sectionpages {94}{127}}
+\headcommand {\beamer@subsectionpages {123}{127}}
+\headcommand {\slideentry {7}{0}{1}{128/128}{}{0}}
 \headcommand {\beamer@framepages {128}{128}}
-\headcommand {\slideentry {7}{1}{2}{129/129}{Debug tools}{0}}
+\headcommand {\slideentry {7}{0}{2}{129/129}{}{0}}
 \headcommand {\beamer@framepages {129}{129}}
-\headcommand {\slideentry {7}{1}{3}{130/130}{Debug tools}{0}}
+\headcommand {\slideentry {7}{0}{3}{130/130}{}{0}}
 \headcommand {\beamer@framepages {130}{130}}
-\headcommand {\slideentry {7}{1}{4}{131/131}{Debug tools}{0}}
+\headcommand {\beamer@subsectionentry {0}{7}{1}{131}{Debug tools}}\headcommand {\beamer@subsectionpages {128}{130}}
+\headcommand {\slideentry {7}{1}{1}{131/131}{Debug tools}{0}}
 \headcommand {\beamer@framepages {131}{131}}
-\headcommand {\slideentry {7}{1}{5}{132/132}{Debug tools}{0}}
+\headcommand {\slideentry {7}{1}{2}{132/132}{Debug tools}{0}}
 \headcommand {\beamer@framepages {132}{132}}
-\headcommand {\slideentry {7}{1}{6}{133/133}{Debug tools}{0}}
+\headcommand {\slideentry {7}{1}{3}{133/133}{Debug tools}{0}}
 \headcommand {\beamer@framepages {133}{133}}
-\headcommand {\slideentry {7}{1}{7}{134/134}{Debug tools}{0}}
+\headcommand {\slideentry {7}{1}{4}{134/134}{Debug tools}{0}}
 \headcommand {\beamer@framepages {134}{134}}
-\headcommand {\slideentry {7}{1}{8}{135/135}{Debug tools}{0}}
+\headcommand {\slideentry {7}{1}{5}{135/135}{Debug tools}{0}}
 \headcommand {\beamer@framepages {135}{135}}
-\headcommand {\slideentry {7}{1}{9}{136/136}{Debug tools}{0}}
+\headcommand {\slideentry {7}{1}{6}{136/136}{Debug tools}{0}}
 \headcommand {\beamer@framepages {136}{136}}
-\headcommand {\slideentry {7}{1}{10}{137/137}{Debug tools}{0}}
+\headcommand {\slideentry {7}{1}{7}{137/137}{Debug tools}{0}}
 \headcommand {\beamer@framepages {137}{137}}
-\headcommand {\slideentry {7}{1}{11}{138/138}{Debug tools}{0}}
+\headcommand {\slideentry {7}{1}{8}{138/138}{Debug tools}{0}}
 \headcommand {\beamer@framepages {138}{138}}
-\headcommand {\slideentry {7}{1}{12}{139/139}{Debug tools}{0}}
+\headcommand {\slideentry {7}{1}{9}{139/139}{Debug tools}{0}}
 \headcommand {\beamer@framepages {139}{139}}
-\headcommand {\beamer@subsectionentry {0}{7}{2}{140}{Performance tools}}\headcommand {\beamer@subsectionpages {128}{139}}
-\headcommand {\slideentry {7}{2}{1}{140/140}{Performance tools}{0}}
+\headcommand {\slideentry {7}{1}{10}{140/140}{Debug tools}{0}}
 \headcommand {\beamer@framepages {140}{140}}
-\headcommand {\slideentry {7}{2}{2}{141/141}{Performance tools}{0}}
+\headcommand {\slideentry {7}{1}{11}{141/141}{Debug tools}{0}}
 \headcommand {\beamer@framepages {141}{141}}
-\headcommand {\slideentry {7}{2}{3}{142/142}{Performance tools}{0}}
+\headcommand {\slideentry {7}{1}{12}{142/142}{Debug tools}{0}}
 \headcommand {\beamer@framepages {142}{142}}
-\headcommand {\slideentry {7}{2}{4}{143/143}{Performance tools}{0}}
+\headcommand {\beamer@subsectionentry {0}{7}{2}{143}{Performance tools}}\headcommand {\beamer@subsectionpages {131}{142}}
+\headcommand {\slideentry {7}{2}{1}{143/143}{Performance tools}{0}}
 \headcommand {\beamer@framepages {143}{143}}
-\headcommand {\slideentry {7}{2}{5}{144/144}{Performance tools}{0}}
+\headcommand {\slideentry {7}{2}{2}{144/144}{Performance tools}{0}}
 \headcommand {\beamer@framepages {144}{144}}
-\headcommand {\slideentry {7}{2}{6}{145/145}{Performance tools}{0}}
+\headcommand {\slideentry {7}{2}{3}{145/145}{Performance tools}{0}}
 \headcommand {\beamer@framepages {145}{145}}
-\headcommand {\slideentry {7}{2}{7}{146/146}{Performance tools}{0}}
+\headcommand {\slideentry {7}{2}{4}{146/146}{Performance tools}{0}}
 \headcommand {\beamer@framepages {146}{146}}
-\headcommand {\slideentry {7}{2}{8}{147/147}{Performance tools}{0}}
+\headcommand {\slideentry {7}{2}{5}{147/147}{Performance tools}{0}}
 \headcommand {\beamer@framepages {147}{147}}
-\headcommand {\slideentry {7}{2}{9}{148/148}{Performance tools}{0}}
+\headcommand {\slideentry {7}{2}{6}{148/148}{Performance tools}{0}}
 \headcommand {\beamer@framepages {148}{148}}
-\headcommand {\slideentry {7}{2}{10}{149/149}{Performance tools}{0}}
+\headcommand {\slideentry {7}{2}{7}{149/149}{Performance tools}{0}}
 \headcommand {\beamer@framepages {149}{149}}
-\headcommand {\slideentry {7}{2}{11}{150/150}{Performance tools}{0}}
+\headcommand {\slideentry {7}{2}{8}{150/150}{Performance tools}{0}}
 \headcommand {\beamer@framepages {150}{150}}
-\headcommand {\beamer@subsectionentry {0}{7}{3}{151}{Intel TBB}}\headcommand {\beamer@subsectionpages {140}{150}}
-\headcommand {\slideentry {7}{3}{1}{151/151}{Intel TBB}{0}}
+\headcommand {\slideentry {7}{2}{9}{151/151}{Performance tools}{0}}
 \headcommand {\beamer@framepages {151}{151}}
-\headcommand {\slideentry {7}{3}{2}{152/152}{Intel TBB}{0}}
+\headcommand {\slideentry {7}{2}{10}{152/152}{Performance tools}{0}}
 \headcommand {\beamer@framepages {152}{152}}
-\headcommand {\sectionentry {8}{Resources}{153}{Resources}{0}}
-\headcommand {\beamer@sectionpages {125}{152}}
-\headcommand {\beamer@subsectionpages {151}{152}}
-\headcommand {\slideentry {8}{0}{1}{153/153}{}{0}}
+\headcommand {\slideentry {7}{2}{11}{153/153}{Performance tools}{0}}
 \headcommand {\beamer@framepages {153}{153}}
-\headcommand {\slideentry {8}{0}{2}{154/154}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{7}{3}{154}{Intel TBB}}\headcommand {\beamer@subsectionpages {143}{153}}
+\headcommand {\slideentry {7}{3}{1}{154/154}{Intel TBB}{0}}
 \headcommand {\beamer@framepages {154}{154}}
-\headcommand {\slideentry {8}{0}{3}{155/155}{}{0}}
+\headcommand {\slideentry {7}{3}{2}{155/155}{Intel TBB}{0}}
 \headcommand {\beamer@framepages {155}{155}}
-\headcommand {\slideentry {8}{0}{4}{156/156}{}{0}}
+\headcommand {\sectionentry {8}{Resources}{156}{Resources}{0}}
+\headcommand {\beamer@sectionpages {128}{155}}
+\headcommand {\beamer@subsectionpages {154}{155}}
+\headcommand {\slideentry {8}{0}{1}{156/156}{}{0}}
 \headcommand {\beamer@framepages {156}{156}}
-\headcommand {\slideentry {8}{0}{5}{157/157}{}{0}}
+\headcommand {\slideentry {8}{0}{2}{157/157}{}{0}}
 \headcommand {\beamer@framepages {157}{157}}
-\headcommand {\slideentry {8}{0}{6}{158/158}{}{0}}
+\headcommand {\slideentry {8}{0}{3}{158/158}{}{0}}
 \headcommand {\beamer@framepages {158}{158}}
-\headcommand {\beamer@partpages {1}{158}}
-\headcommand {\beamer@subsectionpages {153}{158}}
-\headcommand {\beamer@sectionpages {153}{158}}
-\headcommand {\beamer@documentpages {158}}
-\headcommand {\def \inserttotalframenumber {158}}
+\headcommand {\slideentry {8}{0}{4}{159/159}{}{0}}
+\headcommand {\beamer@framepages {159}{159}}
+\headcommand {\slideentry {8}{0}{5}{160/160}{}{0}}
+\headcommand {\beamer@framepages {160}{160}}
+\headcommand {\slideentry {8}{0}{6}{161/161}{}{0}}
+\headcommand {\beamer@framepages {161}{161}}
+\headcommand {\beamer@partpages {1}{161}}
+\headcommand {\beamer@subsectionpages {156}{161}}
+\headcommand {\beamer@sectionpages {156}{161}}
+\headcommand {\beamer@documentpages {161}}
+\headcommand {\def \inserttotalframenumber {161}}
