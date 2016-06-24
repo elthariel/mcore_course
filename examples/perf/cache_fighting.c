@@ -36,8 +36,9 @@ int main(int ac, char **av)
   thread_count = atoi(av[1]);
 
   printf("threads=%d, ops=%ld\n", thread_count, OPS);
-  data = (int64_t *) malloc(sizeof(int64_t));
-  threads = (pthread_t *) malloc(sizeof(pthread_t) * thread_count);
+  data = (int64_t *)malloc(sizeof(int64_t));
+  *data = 0;
+  threads = (pthread_t *)malloc(sizeof(pthread_t) * thread_count);
 
   get_time(&before);
   for(i = 0; i < thread_count; i++)
